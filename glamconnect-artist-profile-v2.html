@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Priya Sharma — Verified Makeup Artist | GlamConnect</title>
+<meta name="description" content="Book Priya Sharma — Police verified, Aadhaar confirmed, hygiene certified bridal makeup artist in South Delhi. 4.9★ · 142 reviews · Specialist: North Indian Bridal, Vitiligo Coverage."/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --rose:#C9184A;--rose-light:#FF4D6D;--rose-soft:rgba(201,24,74,0.07);
+  --gold:#D4A843;--gold-light:#F5D68A;--gold-soft:rgba(212,168,67,0.10);
+  --cream:#FFF8F0;--dark:#1A0A12;--dark2:#2D1B22;
+  --mid:#6B3F4E;--text:#3D1F2B;--muted:#9B7280;
+  --white:#FFFFFF;--card:#FFFBF8;--border:rgba(201,24,74,0.10);
+  --green:#16A34A;--green-bg:#F0FDF4;--green-light:#DCFCE7;
+  --blue:#1D4ED8;--blue-bg:#EFF6FF;
+  --purple:#7C3AED;--purple-bg:#F5F3FF;--purple-soft:rgba(124,58,237,0.08);
+  --teal:#0D9488;--teal-bg:rgba(13,148,136,0.08);
+  --amber:#B45309;--amber-bg:#FFFBEB;
+  --red:#DC2626;--red-bg:#FEF2F2;
+  --shadow:0 4px 24px rgba(26,10,18,0.07);
+  --shadow-lg:0 16px 48px rgba(26,10,18,0.14);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;}
+body.hindi-mode .en{display:none!important;}
+body.hindi-mode .hi{display:inline!important;}
+body:not(.hindi-mode) .hi{display:none!important;}
+
+/* NAV */
+nav{background:rgba(255,248,240,0.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--dark);text-decoration:none;}
+.logo span{color:var(--rose);}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.lang-toggle{display:flex;background:rgba(201,24,74,0.06);border-radius:50px;padding:3px;gap:2px;}
+.lang-btn{border:none;background:none;padding:4px 12px;border-radius:50px;font-size:0.75rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;color:var(--muted);transition:all 0.2s;}
+.lang-btn.active{background:var(--rose);color:white;}
+.btn-back{border:1.5px solid var(--border);background:none;color:var(--mid);padding:7px 16px;border-radius:50px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.btn-back:hover{border-color:var(--rose);color:var(--rose);}
+.nav-book-btn{background:var(--rose);color:white;border:none;padding:8px 20px;border-radius:50px;font-size:0.85rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.nav-book-btn:hover{background:var(--rose-light);transform:translateY(-1px);}
+
+/* HERO */
+.profile-hero{background:linear-gradient(135deg,var(--dark) 0%,var(--dark2) 100%);padding:0;position:relative;overflow:hidden;}
+.profile-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 40%,rgba(201,24,74,0.18),transparent 55%),radial-gradient(ellipse at 10% 80%,rgba(212,168,67,0.1),transparent 50%);}
+.hero-content{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:40px 5% 0;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:end;}
+.profile-photo-wrap{position:relative;}
+.profile-photo{width:220px;height:260px;border-radius:20px 20px 0 0;object-fit:cover;display:block;}
+.photo-verified-stack{position:absolute;top:14px;left:14px;display:flex;flex-direction:column;gap:5px;}
+.pv-badge{display:flex;align-items:center;gap:5px;background:rgba(26,10,18,0.82);backdrop-filter:blur(6px);padding:4px 10px;border-radius:50px;font-size:0.68rem;font-weight:700;color:white;}
+.pv-badge.green{background:rgba(22,163,74,0.85);}
+.pv-badge.blue{background:rgba(29,78,216,0.85);}
+.pv-badge.teal{background:rgba(13,148,136,0.85);}
+.wishlist-btn{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:rgba(26,10,18,0.75);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.wishlist-btn:hover{background:rgba(201,24,74,0.85);}
+.wishlist-btn.liked svg{fill:white;stroke:white;}
+.hero-info{padding-bottom:28px;color:white;}
+.artist-name-large{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:700;line-height:1.1;margin-bottom:6px;}
+.artist-tagline{font-size:0.95rem;color:rgba(255,255,255,0.55);margin-bottom:16px;}
+.rating-row{display:flex;align-items:center;gap:16px;margin-bottom:16px;flex-wrap:wrap;}
+.rating-big{display:flex;align-items:center;gap:6px;font-size:1.05rem;font-weight:700;color:white;}
+.rating-stars{color:var(--gold);}
+.rating-count{font-size:0.82rem;color:rgba(255,255,255,0.45);}
+.rating-divider{width:1px;height:16px;background:rgba(255,255,255,0.15);}
+.quick-stats{display:flex;gap:20px;flex-wrap:wrap;}
+.qs-item{font-size:0.82rem;color:rgba(255,255,255,0.55);}
+.qs-item strong{color:white;font-weight:600;}
+.specialist-tags-row{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px;}
+.spec-tag{display:inline-flex;align-items:center;gap:5px;font-size:0.73rem;font-weight:600;padding:4px 12px;border-radius:50px;}
+.st-bridal{background:rgba(201,24,74,0.2);border:1px solid rgba(201,24,74,0.35);color:rgba(255,182,193,0.9);}
+.st-vitiligo{background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.3);color:rgba(134,239,172,0.9);}
+.st-regional{background:rgba(212,168,67,0.15);border:1px solid rgba(212,168,67,0.3);color:rgba(245,213,128,0.9);}
+.st-groom{background:rgba(13,148,136,0.15);border:1px solid rgba(13,148,136,0.3);color:rgba(94,234,212,0.9);}
+.st-cert{background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);color:rgba(196,181,253,0.9);}
+.hero-cta-row{display:flex;gap:10px;flex-wrap:wrap;}
+.btn-book-hero{background:var(--rose);color:white;border:none;padding:13px 28px;border-radius:50px;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.btn-book-hero:hover{background:var(--rose-light);}
+.btn-whatsapp-hero{display:flex;align-items:center;gap:8px;background:rgba(37,211,102,0.15);border:1.5px solid rgba(37,211,102,0.3);color:rgba(37,211,102,0.9);padding:12px 20px;border-radius:50px;font-size:0.88rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.btn-whatsapp-hero:hover{background:rgba(37,211,102,0.25);}
+.btn-share{background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);padding:12px 18px;border-radius:50px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.btn-share:hover{background:rgba(255,255,255,0.15);}
+
+/* MAIN LAYOUT */
+.main-wrap{max-width:1200px;margin:0 auto;padding:32px 5% 80px;display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start;}
+.content-col{}
+
+/* TAB NAV */
+.tab-nav{display:flex;gap:0;background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:22px;}
+.tab-nav-btn{flex:1;padding:12px 8px;font-size:0.82rem;font-weight:600;color:var(--muted);border:none;background:none;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;border-right:1px solid var(--border);}
+.tab-nav-btn:last-child{border-right:none;}
+.tab-nav-btn.active{background:var(--rose-soft);color:var(--rose);}
+.tab-nav-btn:hover:not(.active){color:var(--rose);}
+.tab-pane{display:none;}
+.tab-pane.active{display:block;}
+
+/* CARDS */
+.card{background:var(--white);border:1px solid var(--border);border-radius:18px;padding:22px;margin-bottom:18px;}
+.card-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--dark);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+
+/* CERTS GRID */
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
+.cert-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;display:flex;align-items:flex-start;gap:10px;}
+.cert-icon-wrap{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.ci-green{background:var(--green-bg);}
+.ci-blue{background:var(--blue-bg);}
+.ci-purple{background:var(--purple-bg);}
+.ci-teal{background:var(--teal-bg);}
+.ci-gold{background:var(--gold-soft);}
+.cert-info{}
+.cert-name{font-size:0.82rem;font-weight:700;color:var(--dark);margin-bottom:2px;}
+.cert-issuer{font-size:0.72rem;color:var(--muted);}
+.cert-valid{font-size:0.68rem;color:var(--green);font-weight:600;margin-top:3px;}
+
+/* SPECIALIST SKILLS */
+.skills-section{margin-bottom:16px;}
+.skills-label{font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;}
+.skills-chips{display:flex;flex-wrap:wrap;gap:7px;}
+.skill-chip{font-size:0.78rem;font-weight:500;padding:5px 12px;border-radius:50px;border:1px solid var(--border);background:var(--card);color:var(--text);}
+.skill-chip.specialist{background:var(--purple-bg);border-color:rgba(124,58,237,0.15);color:var(--purple);}
+.skill-chip.regional{background:var(--gold-soft);border-color:rgba(212,168,67,0.2);color:var(--amber);}
+.skill-chip.inclusive{background:var(--green-bg);border-color:rgba(22,163,74,0.15);color:var(--green);}
+.skill-chip.groom{background:var(--teal-bg);border-color:rgba(13,148,136,0.15);color:var(--teal);}
+
+/* PORTFOLIO GRID */
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.portfolio-item{aspect-ratio:1;border-radius:10px;overflow:hidden;cursor:pointer;position:relative;}
+.portfolio-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s;}
+.portfolio-item:hover img{transform:scale(1.06);}
+.portfolio-overlay{position:absolute;inset:0;background:rgba(26,10,18,0);display:flex;align-items:center;justify-content:center;transition:background 0.3s;}
+.portfolio-item:hover .portfolio-overlay{background:rgba(26,10,18,0.35);}
+.portfolio-tag{font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:50px;position:absolute;bottom:8px;left:8px;backdrop-filter:blur(4px);}
+.pt-bridal{background:rgba(201,24,74,0.85);color:white;}
+.pt-specialist{background:rgba(124,58,237,0.85);color:white;}
+.pt-groom{background:rgba(13,148,136,0.85);color:white;}
+.pt-party{background:rgba(212,168,67,0.85);color:white;}
+.pt-regional{background:rgba(180,83,9,0.85);color:white;}
+.load-more-btn{width:100%;background:none;border:1.5px solid var(--border);color:var(--mid);padding:10px;border-radius:10px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:10px;transition:all 0.2s;}
+.load-more-btn:hover{border-color:var(--rose);color:var(--rose);}
+
+/* REVIEWS */
+.review-summary{display:flex;gap:20px;align-items:center;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--border);}
+.review-big-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:700;color:var(--dark);line-height:1;}
+.rating-breakdown{flex:1;}
+.rb-row{display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+.rb-label{font-size:0.72rem;color:var(--muted);width:30px;}
+.rb-bar-wrap{flex:1;height:5px;background:var(--border);border-radius:3px;overflow:hidden;}
+.rb-bar{height:100%;background:var(--gold);border-radius:3px;}
+.rb-count{font-size:0.72rem;color:var(--muted);width:24px;text-align:right;}
+.review-card{padding:14px 0;border-bottom:1px solid var(--border);}
+.review-card:last-child{border-bottom:none;}
+.rc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
+.rc-reviewer{display:flex;align-items:center;gap:10px;}
+.rc-avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;flex-shrink:0;}
+.rc-name{font-size:0.88rem;font-weight:600;color:var(--dark);}
+.rc-service{font-size:0.72rem;color:var(--muted);}
+.rc-stars{color:var(--gold);font-size:0.85rem;}
+.rc-text{font-size:0.85rem;color:var(--mid);line-height:1.68;margin-bottom:4px;}
+.rc-date{font-size:0.7rem;color:var(--muted);}
+.rc-verified{display:inline-flex;align-items:center;gap:4px;font-size:0.65rem;font-weight:600;background:var(--green-bg);color:var(--green);padding:2px 7px;border-radius:50px;margin-left:6px;}
+
+/* ABOUT */
+.about-section{line-height:1.75;font-size:0.9rem;color:var(--mid);}
+.about-section strong{color:var(--text);}
+.about-section h4{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--dark);margin:16px 0 6px;}
+.lang-spoken{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+.lang-chip{font-size:0.75rem;font-weight:500;padding:4px 12px;border-radius:50px;background:var(--blue-bg);color:var(--blue);border:1px solid rgba(29,78,216,0.1);}
+
+/* SIDEBAR STICKY CARD */
+.sticky-book-card{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:22px;position:sticky;top:84px;box-shadow:var(--shadow-lg);}
+.sbc-price{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--dark);margin-bottom:4px;}
+.sbc-from{font-size:0.78rem;color:var(--muted);}
+.sbc-rating{display:flex;align-items:center;gap:6px;font-size:0.85rem;font-weight:600;color:var(--dark);margin-bottom:16px;}
+.sbc-select{width:100%;padding:10px 13px;border-radius:10px;border:1.5px solid var(--border);background:var(--cream);font-size:0.88rem;font-family:'DM Sans',sans-serif;color:var(--text);outline:none;margin-bottom:10px;transition:border-color 0.2s;}
+.sbc-select:focus{border-color:var(--rose);}
+.sbc-date-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;}
+.sbc-input{width:100%;padding:10px 13px;border-radius:10px;border:1.5px solid var(--border);background:var(--cream);font-size:0.85rem;font-family:'DM Sans',sans-serif;color:var(--text);outline:none;transition:border-color 0.2s;}
+.sbc-input:focus{border-color:var(--rose);}
+.price-breakdown{background:var(--cream);border-radius:12px;padding:13px;margin-bottom:12px;}
+.pb-row{display:flex;justify-content:space-between;font-size:0.82rem;color:var(--mid);padding:3px 0;}
+.pb-row.total{font-weight:700;color:var(--dark);font-size:0.9rem;border-top:1px solid var(--border);padding-top:8px;margin-top:4px;}
+.pb-row.dep{color:var(--rose);font-weight:700;}
+.pb-commission{color:var(--green)!important;font-size:0.78rem!important;}
+.upi-nudge{background:var(--green-bg);border:1px solid rgba(22,163,74,0.15);border-radius:8px;padding:7px 11px;font-size:0.75rem;color:var(--green);margin-bottom:10px;display:flex;align-items:center;gap:5px;}
+.sbc-allergy{background:var(--amber-bg);border:1px solid rgba(180,83,9,0.12);border-radius:8px;padding:9px 12px;margin-bottom:10px;}
+.sbc-allergy-label{font-size:0.72rem;font-weight:700;color:var(--amber);margin-bottom:5px;}
+.allergy-mini-chips{display:flex;flex-wrap:wrap;gap:4px;}
+.amc{font-size:0.7rem;border:1px solid rgba(180,83,9,0.2);background:white;color:var(--amber);padding:2px 8px;border-radius:50px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.amc.sel{background:var(--amber);color:white;border-color:var(--amber);}
+.sbc-consent{display:flex;align-items:flex-start;gap:8px;font-size:0.73rem;color:var(--muted);line-height:1.55;margin-bottom:10px;}
+.sbc-consent input{accent-color:var(--rose);flex-shrink:0;margin-top:2px;}
+.sbc-consent a{color:var(--rose);text-decoration:none;}
+.book-cta-btn{width:100%;background:var(--rose);color:white;border:none;padding:13px;border-radius:50px;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;margin-bottom:8px;}
+.book-cta-btn:hover{background:var(--rose-light);}
+.whatsapp-cta{width:100%;display:flex;align-items:center;justify-content:center;gap:7px;background:rgba(37,211,102,0.08);border:1.5px solid rgba(37,211,102,0.25);color:rgba(37,211,102,1);padding:10px;border-radius:50px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.whatsapp-cta:hover{background:rgba(37,211,102,0.15);}
+.trust-stack{display:flex;flex-direction:column;gap:6px;margin-top:12px;padding-top:12px;border-top:1px solid var(--border);}
+.ts-item{display:flex;align-items:center;gap:6px;font-size:0.75rem;color:var(--mid);}
+.ts-item svg{flex-shrink:0;}
+
+/* AVAILABILITY MINI CALENDAR */
+.avail-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:16px;margin-top:14px;}
+.avail-title{font-size:0.78rem;font-weight:700;color:var(--mid);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;}
+.avail-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
+.avail-day{aspect-ratio:1;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;cursor:pointer;}
+.avail-day.av{background:var(--green-bg);color:var(--green);font-weight:600;}
+.avail-day.bk{background:var(--rose-soft);color:var(--rose);cursor:default;}
+.avail-day.past{color:var(--muted);cursor:default;}
+.avail-day.today{border:1.5px solid var(--rose);color:var(--rose);font-weight:700;}
+.avail-legend{display:flex;gap:12px;margin-top:8px;font-size:0.68rem;color:var(--muted);}
+.al-dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:3px;}
+
+/* PORTFOLIO MODAL */
+.port-modal{position:fixed;inset:0;background:rgba(26,10,18,0.9);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.25s;}
+.port-modal.open{opacity:1;pointer-events:all;}
+.port-modal-img{max-width:90vw;max-height:85vh;border-radius:12px;object-fit:contain;}
+.port-modal-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,0.1);border:none;color:white;font-size:1.4rem;cursor:pointer;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.port-modal-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.1);border:none;color:white;font-size:1.2rem;cursor:pointer;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.port-modal-nav.prev{left:20px;}
+.port-modal-nav.next{right:20px;}
+
+/* BOOKING MODAL */
+.booking-modal{position:fixed;inset:0;background:rgba(26,10,18,0.6);backdrop-filter:blur(4px);z-index:500;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.25s;}
+.booking-modal.open{opacity:1;pointer-events:all;}
+.bm-box{background:var(--white);border-radius:20px;padding:28px;max-width:460px;width:90%;max-height:90vh;overflow-y:auto;}
+.bm-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+.bm-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;color:var(--dark);}
+.bm-close{background:none;border:none;font-size:1.2rem;color:var(--muted);cursor:pointer;}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--dark);color:white;padding:10px 20px;border-radius:50px;font-size:0.85rem;font-weight:500;opacity:0;transition:all 0.3s;pointer-events:none;z-index:9998;white-space:nowrap;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.toast.ok{background:#15803D;}
+.toast.err{background:#B91C1C;}
+
+@media(max-width:900px){
+  .hero-content{grid-template-columns:1fr;}
+  .profile-photo-wrap{display:flex;justify-content:center;}
+  .profile-photo{width:160px;height:200px;}
+  .main-wrap{grid-template-columns:1fr;}
+  .sticky-book-card{position:static;}
+  .portfolio-grid{grid-template-columns:repeat(2,1fr);}
+  .certs-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- PORTFOLIO MODAL -->
+<div class="port-modal" id="portModal">
+  <button class="port-modal-close" onclick="closePortModal()">✕</button>
+  <button class="port-modal-nav prev" onclick="navPort(-1)">‹</button>
+  <img class="port-modal-img" id="portModalImg" src="" alt="Portfolio"/>
+  <button class="port-modal-nav next" onclick="navPort(1)">›</button>
+</div>
+
+<!-- BOOKING MODAL -->
+<div class="booking-modal" id="bookingModal">
+  <div class="bm-box">
+    <div class="bm-header">
+      <div class="bm-title en">Book Priya Sharma</div>
+      <div class="bm-title hi" style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;color:var(--dark);">प्रिया शर्मा को बुक करें</div>
+      <button class="bm-close" onclick="closeBookingModal()">✕</button>
+    </div>
+    <label style="font-size:0.72rem;font-weight:700;color:var(--mid);display:block;margin-bottom:5px;" class="en">Service *</label>
+    <select class="sbc-select" id="bm-service" onchange="updateBookingPrice()">
+      <option value="3500">Bridal Makeup — ₹3,500</option>
+      <option value="6500">Full Bridal Package — ₹6,500</option>
+      <option value="1800">Party Makeup — ₹1,800</option>
+      <option value="2800">Vitiligo Specialist Coverage — ₹2,800</option>
+      <option value="5000">North Indian Bridal Specialist — ₹5,000</option>
+      <option value="9500">Pre-Bridal Programme (8 weeks) — ₹9,500</option>
+      <option value="1500">Corporate / Office — ₹1,500</option>
+    </select>
+    <label style="font-size:0.72rem;font-weight:700;color:var(--mid);display:block;margin-bottom:5px;" class="en">Date & Time *</label>
+    <div class="sbc-date-row">
+      <input class="sbc-input" id="bm-date" type="date"/>
+      <select class="sbc-input" id="bm-time">
+        <option>7:00 AM</option><option>8:00 AM</option><option>9:00 AM</option>
+        <option>10:00 AM</option><option>11:00 AM</option>
+      </select>
+    </div>
+    <div class="price-breakdown" id="bm-price-box">
+      <div class="pb-row"><span class="en">Service</span><span id="bm-price">₹3,500</span></div>
+      <div class="pb-row pb-commission"><span class="en">Commission (10%)</span><span id="bm-commission">₹350</span></div>
+      <div class="pb-row"><span>GST</span><span id="bm-gst">₹63</span></div>
+      <div class="pb-row total"><span class="en">Total</span><span id="bm-total">₹3,913</span></div>
+      <div class="pb-row dep"><span class="en">Pay now (20% deposit)</span><span id="bm-deposit">₹783</span></div>
+    </div>
+    <div class="upi-nudge">💚 <span class="en">Pay with UPI and save ₹20</span></div>
+    <div class="sbc-allergy">
+      <div class="sbc-allergy-label en">⚠️ Declare Allergies (for your safety)</div>
+      <div class="allergy-mini-chips">
+        <button class="amc" onclick="this.classList.toggle('sel')">Latex</button>
+        <button class="amc" onclick="this.classList.toggle('sel')">Nuts</button>
+        <button class="amc" onclick="this.classList.toggle('sel')">Fragrance</button>
+        <button class="amc" onclick="this.classList.toggle('sel')">Nickel</button>
+        <button class="amc" onclick="this.classList.toggle('sel')">None</button>
+      </div>
+    </div>
+    <div class="sbc-consent">
+      <input type="checkbox" id="bm-consent"/>
+      <span class="en">I agree to the <a href="glamconnect-legal-pages.html">Terms of Service</a> and <a href="glamconnect-legal-pages.html">Privacy Policy</a>. Priya is an independent contractor. DPDP Act 2023.</span>
+    </div>
+    <button class="book-cta-btn" onclick="confirmBooking()">
+      <span class="en">Confirm & Pay Deposit →</span>
+      <span class="hi">पुष्टि करें और डिपॉजिट दें →</span>
+    </button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="glamconnect-homepage-v2.html">Glam<span>Connect</span></a>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="en-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="hi-btn" onclick="setLang('hi')">हिं</button>
+    </div>
+    <button class="btn-back" onclick="history.back()">
+      <span class="en">← Search</span><span class="hi">← खोज</span>
+    </button>
+    <button class="nav-book-btn" onclick="openBookingModal()">
+      <span class="en">Book Now →</span><span class="hi">अभी बुक करें →</span>
+    </button>
+  </div>
+</nav>
+
+<!-- PROFILE HERO -->
+<div class="profile-hero">
+  <div class="hero-content">
+    <div class="profile-photo-wrap">
+      <img class="profile-photo" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=440&h=520&fit=crop&crop=faces" alt="Priya Sharma"/>
+      <div class="photo-verified-stack">
+        <div class="pv-badge green">✓ Aadhaar Verified</div>
+        <div class="pv-badge blue">🛡️ Police Cleared</div>
+        <div class="pv-badge teal">💧 Hygiene Certified</div>
+      </div>
+      <button class="wishlist-btn" id="wishlistBtn" onclick="toggleWishlist()" aria-label="Save artist">
+        <svg width="16" height="16" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </button>
+    </div>
+    <div class="hero-info">
+      <div class="artist-name-large en">Priya Sharma</div>
+      <div class="artist-name-large hi" style="font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:700;line-height:1.1;margin-bottom:6px;">प्रिया शर्मा</div>
+      <div class="artist-tagline en">Senior Bridal & Specialist Makeup Artist · South Delhi · 8 years experience</div>
+      <div class="artist-tagline hi">सीनियर ब्राइडल और स्पेशलिस्ट मेकअप आर्टिस्ट · साउथ दिल्ली · 8 साल का अनुभव</div>
+      <div class="rating-row">
+        <div class="rating-big"><span class="rating-stars">★★★★★</span> 4.9</div>
+        <span class="rating-count">142 reviews</span>
+        <div class="rating-divider"></div>
+        <div class="quick-stats">
+          <span class="qs-item"><strong>8</strong> years exp</span>
+          <span class="qs-item"><strong>380+</strong> bookings</span>
+          <span class="qs-item"><strong>VLCC</strong> Certified</span>
+          <span class="qs-item">📍 <strong>South Delhi</strong></span>
+        </div>
+      </div>
+      <!-- SPECIALIST TAGS — the key upgrade from old profile -->
+      <div class="specialist-tags-row">
+        <span class="spec-tag st-bridal">💍 North Indian Bridal</span>
+        <span class="spec-tag st-bridal">💍 Punjabi Bridal Specialist</span>
+        <span class="spec-tag st-vitiligo">🌿 Vitiligo Coverage Certified</span>
+        <span class="spec-tag st-regional">🌸 Pre-Bridal Programme</span>
+        <span class="spec-tag st-cert">🏆 GlamConnect Diamond Artist</span>
+        <span class="spec-tag st-groom">🤵 Groom Grooming</span>
+        <span class="spec-tag st-cert">✅ Hygiene Certified · 91%</span>
+      </div>
+      <div class="hero-cta-row">
+        <button class="btn-book-hero" onclick="openBookingModal()">
+          <span class="en">Book Priya →</span><span class="hi">प्रिया को बुक करें →</span>
+        </button>
+        <button class="btn-whatsapp-hero" onclick="openWhatsApp()">
+          <svg width="16" height="16" fill="rgba(37,211,102,0.9)" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span class="en">Message on WhatsApp</span>
+        </button>
+        <button class="btn-share" onclick="shareProfile()">📤 <span class="en">Share</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="main-wrap">
+<div class="content-col">
+
+  <!-- TABS -->
+  <div class="tab-nav">
+    <button class="tab-nav-btn active" onclick="switchTab('overview',this)">
+      <span class="en">Overview</span><span class="hi">ओवरव्यू</span>
+    </button>
+    <button class="tab-nav-btn" onclick="switchTab('portfolio',this)">
+      <span class="en">Portfolio</span><span class="hi">पोर्टफोलियो</span>
+    </button>
+    <button class="tab-nav-btn" onclick="switchTab('reviews',this)">
+      <span class="en">Reviews (142)</span><span class="hi">रिव्यू</span>
+    </button>
+    <button class="tab-nav-btn" onclick="switchTab('certifications',this)">
+      <span class="en">Certifications</span><span class="hi">सर्टिफिकेट</span>
+    </button>
+    <button class="tab-nav-btn" onclick="switchTab('about',this)">
+      <span class="en">About</span><span class="hi">परिचय</span>
+    </button>
+  </div>
+
+  <!-- OVERVIEW TAB -->
+  <div class="tab-pane active" id="tab-overview">
+    <!-- Services & Pricing -->
+    <div class="card">
+      <div class="card-title en">Services & Pricing</div>
+      <div class="card-title hi" style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--dark);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border);">सेवाएं और मूल्य</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-radius:10px;border:1px solid var(--border);background:var(--card);">
+          <div><div style="font-size:0.88rem;font-weight:600;color:var(--text);">💍 <span class="en">North Indian Bridal</span><span class="hi">नॉर्थ इंडियन ब्राइडल</span></div><div style="font-size:0.73rem;color:var(--muted);">2–3 hrs · Bridal makeup + hair styling</div></div>
+          <div style="text-align:right;"><div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;">₹3,500</div><button style="background:var(--rose);color:white;border:none;padding:4px 12px;border-radius:50px;font-size:0.72rem;font-weight:600;cursor:pointer;margin-top:3px;" onclick="openBookingModal()">Book</button></div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-radius:10px;border:1px solid var(--border);background:var(--card);">
+          <div><div style="font-size:0.88rem;font-weight:600;color:var(--text);">👑 <span class="en">Full Bridal Package</span><span class="hi">फुल ब्राइडल पैकेज</span></div><div style="font-size:0.73rem;color:var(--muted);">4–5 hrs · Makeup + hair + draping</div></div>
+          <div style="text-align:right;"><div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;">₹6,500</div><button style="background:var(--rose);color:white;border:none;padding:4px 12px;border-radius:50px;font-size:0.72rem;font-weight:600;cursor:pointer;margin-top:3px;" onclick="openBookingModal()">Book</button></div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-radius:10px;border:2px solid rgba(22,163,74,0.2);background:var(--green-bg);">
+          <div><div style="font-size:0.88rem;font-weight:600;color:var(--text);">🌿 <span class="en">Vitiligo Specialist Coverage</span><span class="hi">विटिलिगो स्पेशलिस्ट</span></div><div style="font-size:0.73rem;color:var(--muted);">2 hrs · Certified colour-matching & camouflage</div></div>
+          <div style="text-align:right;"><div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;">₹2,800</div><button style="background:var(--green);color:white;border:none;padding:4px 12px;border-radius:50px;font-size:0.72rem;font-weight:600;cursor:pointer;margin-top:3px;" onclick="openBookingModal()">Book</button></div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-radius:10px;border:1px solid var(--border);background:var(--card);">
+          <div><div style="font-size:0.88rem;font-weight:600;color:var(--text);">📅 <span class="en">Pre-Bridal Programme (8 weeks)</span><span class="hi">प्री-ब्राइडल प्रोग्राम</span></div><div style="font-size:0.73rem;color:var(--muted);">4 sessions + wedding day · skin preparation + trial</div></div>
+          <div style="text-align:right;"><div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;">₹9,500</div><button style="background:var(--rose);color:white;border:none;padding:4px 12px;border-radius:50px;font-size:0.72rem;font-weight:600;cursor:pointer;margin-top:3px;" onclick="openBookingModal()">Book</button></div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border-radius:10px;border:1px solid var(--border);background:var(--card);">
+          <div><div style="font-size:0.88rem;font-weight:600;color:var(--text);">🎉 <span class="en">Party / Sangeet</span><span class="hi">पार्टी / संगीत</span></div><div style="font-size:0.73rem;color:var(--muted);">1–1.5 hrs · Events, sangeet, reception</div></div>
+          <div style="text-align:right;"><div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;">₹1,800</div><button style="background:var(--rose);color:white;border:none;padding:4px 12px;border-radius:50px;font-size:0.72rem;font-weight:600;cursor:pointer;margin-top:3px;" onclick="openBookingModal()">Book</button></div>
+        </div>
+      </div>
+      <div style="margin-top:12px;font-size:0.75rem;color:var(--muted);background:var(--cream);border-radius:8px;padding:8px 12px;">
+        💡 <span class="en">All prices include 10% GlamConnect commission (most transparent platform in India). GST shown at checkout. Free cancellation up to 24 hours before service.</span>
+        <span class="hi">सभी मूल्यों में 10% GlamConnect कमीशन शामिल है। GST चेकआउट पर दिखाया जाएगा।</span>
+      </div>
+    </div>
+
+    <!-- Specialist Skills -->
+    <div class="card">
+      <div class="card-title en">Skills & Specialisations</div>
+      <div class="card-title hi" style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--dark);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border);">कौशल और विशेषज्ञता</div>
+      <div class="skills-section">
+        <div class="skills-label en">Certified Specialist Areas</div>
+        <div class="skills-chips">
+          <span class="skill-chip specialist">🌿 Vitiligo Coverage</span>
+          <span class="skill-chip specialist">💍 North Indian Bridal</span>
+          <span class="skill-chip specialist">💍 Punjabi Bridal</span>
+          <span class="skill-chip specialist">📅 Pre-Bridal Programme</span>
+        </div>
+      </div>
+      <div class="skills-section">
+        <div class="skills-label en">Regional Bridal Traditions</div>
+        <div class="skills-chips">
+          <span class="skill-chip regional">🥻 Lehenga & Jewellery Coordination</span>
+          <span class="skill-chip regional">👰 Punjabi Bridal (Heavy Dupatta)</span>
+          <span class="skill-chip regional">🌺 Karva Chauth & Festival Looks</span>
+          <span class="skill-chip regional">🪔 Diwali Party Glam</span>
+        </div>
+      </div>
+      <div class="skills-section">
+        <div class="skills-label en">Inclusive Beauty Skills</div>
+        <div class="skills-chips">
+          <span class="skill-chip inclusive">🌿 Vitiligo colour-matching (certified)</span>
+          <span class="skill-chip inclusive">💧 Sensitive skin protocols</span>
+          <span class="skill-chip inclusive">🧴 Fragrance-free product range available</span>
+          <span class="skill-chip inclusive">✏️ Brow restoration techniques</span>
+        </div>
+      </div>
+      <div class="skills-section">
+        <div class="skills-label en">Other Services</div>
+        <div class="skills-chips">
+          <span class="skill-chip">Airbrush Makeup</span>
+          <span class="skill-chip">HD Photography Makeup</span>
+          <span class="skill-chip groom">🤵 Groom Grooming</span>
+          <span class="skill-chip">Corporate Office Makeup</span>
+          <span class="skill-chip">Editorial & Shoot</span>
+          <span class="skill-chip">Engagement Looks</span>
+          <span class="skill-chip">Mehendi Occasion</span>
+          <span class="skill-chip">Skin Prep & Base</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Reviews Preview -->
+    <div class="card">
+      <div class="card-title en">Recent Reviews</div>
+      <div class="review-card">
+        <div class="rc-top">
+          <div class="rc-reviewer"><img class="rc-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=72&h=72&fit=crop" alt="Ananya"/><div><div class="rc-name">Ananya Singh <span class="rc-verified">✓ Verified Booking</span></div><div class="rc-service">Bridal Makeup · April 2026</div></div></div>
+          <div class="rc-stars">★★★★★</div>
+        </div>
+        <div class="rc-text en">"Priya was absolutely incredible on my wedding morning. She arrived 10 minutes early, her kit was spotless, and she understood exactly what I wanted from our pre-bridal consultation. The North Indian bridal look was perfect with my Sabyasachi lehenga. I have booked her for my sister's wedding next year already."</div>
+        <div class="rc-date">April 12, 2026</div>
+      </div>
+      <div class="review-card">
+        <div class="rc-top">
+          <div class="rc-reviewer"><img class="rc-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=72&h=72&fit=crop" alt="Rohini"/><div><div class="rc-name">Rohini Verma <span class="rc-verified">✓ Verified Booking</span></div><div class="rc-service">Vitiligo Coverage · March 2026</div></div></div>
+          <div class="rc-stars">★★★★★</div>
+        </div>
+        <div class="rc-text en">"I have vitiligo and have struggled to find a makeup artist who truly understands how to blend coverage without it looking heavy or obvious. Priya's colour-matching technique is extraordinary — for the first time in years, my wedding photos look exactly how I dreamed. She treated me with such dignity. I cannot recommend her enough."</div>
+        <div class="rc-date">March 28, 2026</div>
+      </div>
+      <button class="load-more-btn" onclick="switchTab('reviews',document.querySelectorAll('.tab-nav-btn')[2])">
+        <span class="en">See all 142 reviews →</span><span class="hi">सभी 142 रिव्यू देखें →</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- PORTFOLIO TAB -->
+  <div class="tab-pane" id="tab-portfolio">
+    <div class="card">
+      <div class="card-title en">Portfolio — 380+ Completed Looks</div>
+      <div class="card-title hi" style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--dark);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border);">पोर्टफोलियो — 380+ पूर्ण लुक्स</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
+        <button class="skill-chip" style="cursor:pointer;border-color:var(--rose);color:var(--rose);" onclick="filterPortfolio('all',this)">All</button>
+        <button class="skill-chip" style="cursor:pointer;" onclick="filterPortfolio('bridal',this)">Bridal</button>
+        <button class="skill-chip specialist" style="cursor:pointer;" onclick="filterPortfolio('specialist',this)">Specialist</button>
+        <button class="skill-chip regional" style="cursor:pointer;" onclick="filterPortfolio('regional',this)">Regional</button>
+        <button class="skill-chip groom" style="cursor:pointer;" onclick="filterPortfolio('groom',this)">Groom</button>
+        <button class="skill-chip" style="cursor:pointer;" onclick="filterPortfolio('party',this)">Party</button>
+      </div>
+      <div class="portfolio-grid" id="portfolioGrid">
+        <div class="portfolio-item" onclick="openPortModal(0)" data-type="bridal"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=320&h=320&fit=crop" alt="Bridal 1"/><div class="portfolio-overlay"></div><span class="portfolio-tag pt-bridal">Bridal</span></div>
+        <div class="portfolio-item" onclick="openPortModal(1)" data-type="specialist"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=320&h=320&fit=crop" alt="Specialist"/><div class="portfolio-overlay"></div><span class="portfolio-tag pt-specialist">Vitiligo Specialist</span></div>
+        <div class="portfolio-item" onclick="openPortModal(2)" data-type="bridal"><img src="https://images.unsplash.com/photo-1498551172505-8137406b75d1?w=320&h=320&fit=crop" alt="Bridal 2"/><div class="portfolio-overlay"></div><span class="portfolio-tag pt-bridal">N.Indian Bridal</span></div>
+        <div class="portfolio-item" onclick="openPortModal(3)" data-type="regional"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=320&h=320&fit=crop" alt="Regional"/><div class="portfolio-overlay"></div><span class="portfolio-tag pt-regional">Punjabi Bridal</span></div>
+        <div class="portfolio-item" onclick="openPortModal(4)" data-type="party"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=320&h=320&fit=crop" alt="Party"/><div class="portfolio-overlay"></div><span class="portfolio-tag pt-party">Sangeet</span></div>
+        <div class="portfolio-item" onclick="openPortModal(5)" data-type="groom"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=320&h=320&fit=crop" alt="Groom"/><div class="portfolio-overlay"></div><span class="portfolio-tag pt-groom">Groom Grooming</span></div>
+        <div class="portfolio-item" onclick="openPortModal(6)" data-type="bridal"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=320&h=320&fit=crop" alt="Bridal 3"/><div class="portfolio-overlay"></div><span class="portfolio-tag pt-bridal">Bridal</span></div>
+        <div class="portfolio-item" onclick="openPortModal(7)" data-type="party"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=320&h=320&fit=crop" alt="Party 2"/><div class="portfolio-overlay"></div><span class="portfolio-tag pt-party">Party</span></div>
+        <div class="portfolio-item" onclick="openPortModal(8)" data-type="specialist"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=320&h=320&fit=crop" alt="Specialist 2"/><div class="portfolio-overlay"></div><span class="portfolio-tag pt-specialist">Specialist</span></div>
+      </div>
+      <div style="font-size:0.75rem;color:var(--muted);text-align:center;margin-top:10px;line-height:1.6;" class="en">📷 All portfolio photos published with written client consent per GlamConnect policy. Photos involving clients under 18 require parental consent.</div>
+      <button class="load-more-btn" style="margin-top:8px;">
+        <span class="en">Load more photos</span><span class="hi">अधिक फोटो देखें</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- REVIEWS TAB -->
+  <div class="tab-pane" id="tab-reviews">
+    <div class="card">
+      <div class="card-title en">142 Verified Reviews</div>
+      <div class="review-summary">
+        <div>
+          <div class="review-big-num">4.9</div>
+          <div style="color:var(--gold);font-size:1rem;margin-top:4px;">★★★★★</div>
+          <div style="font-size:0.72rem;color:var(--muted);margin-top:3px;">142 reviews</div>
+        </div>
+        <div class="rating-breakdown">
+          <div class="rb-row"><span class="rb-label">5★</span><div class="rb-bar-wrap"><div class="rb-bar" style="width:88%;"></div></div><span class="rb-count">124</span></div>
+          <div class="rb-row"><span class="rb-label">4★</span><div class="rb-bar-wrap"><div class="rb-bar" style="width:9%;"></div></div><span class="rb-count">13</span></div>
+          <div class="rb-row"><span class="rb-label">3★</span><div class="rb-bar-wrap"><div class="rb-bar" style="width:3%;"></div></div><span class="rb-count">4</span></div>
+          <div class="rb-row"><span class="rb-label">2★</span><div class="rb-bar-wrap"><div class="rb-bar" style="width:1%;"></div></div><span class="rb-count">1</span></div>
+          <div class="rb-row"><span class="rb-label">1★</span><div class="rb-bar-wrap"><div class="rb-bar" style="width:0%;"></div></div><span class="rb-count">0</span></div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="rc-top"><div class="rc-reviewer"><img class="rc-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=72&h=72&fit=crop" alt="Ananya"/><div><div class="rc-name">Ananya Singh <span class="rc-verified">✓ Verified</span></div><div class="rc-service">Bridal · Apr 2026</div></div></div><div class="rc-stars">★★★★★</div></div>
+        <div class="rc-text en">"Priya was absolutely incredible. Her North Indian bridal technique is flawless — she understood the traditional Punjabi look I wanted and executed it perfectly. The makeup lasted 14 hours through the entire ceremony and reception. Cannot recommend her more highly."</div>
+        <div class="rc-date">April 12, 2026</div>
+      </div>
+      <div class="review-card">
+        <div class="rc-top"><div class="rc-reviewer"><img class="rc-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=72&h=72&fit=crop" alt="Rohini"/><div><div class="rc-name">Rohini Verma <span class="rc-verified">✓ Verified</span></div><div class="rc-service">Vitiligo Coverage · Mar 2026</div></div></div><div class="rc-stars">★★★★★</div></div>
+        <div class="rc-text en">"I was nervous about finding someone who could handle my vitiligo for my engagement party. Priya is a specialist who genuinely knows this technique. The coverage was perfect — natural, not heavy — and I cried happy tears when I saw the result. She was so kind and professional. This is the artist I have been looking for my entire adult life."</div>
+        <div class="rc-date">March 28, 2026</div>
+      </div>
+      <div class="review-card">
+        <div class="rc-top"><div class="rc-reviewer"><img class="rc-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=72&h=72&fit=crop" alt="Kavita"/><div><div class="rc-name">Kavita Mehta <span class="rc-verified">✓ Verified</span></div><div class="rc-service">Party Makeup · Mar 2026</div></div></div><div class="rc-stars">★★★★★</div></div>
+        <div class="rc-text en">"Fourth time booking Priya. She always delivers exactly what I want — sometimes better. Her hygiene and professionalism are unmatched. Arrived on time, left the space spotless. This is what a professional home service should look like."</div>
+        <div class="rc-date">March 31, 2026</div>
+      </div>
+      <div class="review-card">
+        <div class="rc-top"><div class="rc-reviewer"><img class="rc-avatar" src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=72&h=72&fit=crop" alt="Sonal"/><div><div class="rc-name">Sonal Gupta <span class="rc-verified">✓ Verified</span></div><div class="rc-service">Corporate · Mar 2026</div></div></div><div class="rc-stars">★★★★☆</div></div>
+        <div class="rc-text en">"Very professional and punctual. The corporate makeup was exactly right — natural and polished. Slight delay at the start but she made up the time. Would book again."</div>
+        <div class="rc-date">March 31, 2026</div>
+      </div>
+      <button class="load-more-btn">
+        <span class="en">Load more reviews (138 remaining)</span><span class="hi">अधिक रिव्यू देखें</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS TAB -->
+  <div class="tab-pane" id="tab-certifications">
+    <div class="card">
+      <div class="card-title en">Verification & Certifications</div>
+      <div class="card-title hi" style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--dark);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border);">वेरिफिकेशन और सर्टिफिकेट</div>
+      <div class="certs-grid">
+        <div class="cert-card"><div class="cert-icon-wrap ci-green">✅</div><div class="cert-info"><div class="cert-name">Aadhaar OTP Verified</div><div class="cert-issuer">Identity confirmed · UIDAI</div><div class="cert-valid">✓ Verified · Permanent</div></div></div>
+        <div class="cert-card"><div class="cert-icon-wrap ci-blue">🛡️</div><div class="cert-info"><div class="cert-name">Police Clearance Certificate</div><div class="cert-issuer">Delhi Police · No criminal record</div><div class="cert-valid">✓ Valid until March 2027</div></div></div>
+        <div class="cert-card"><div class="cert-icon-wrap ci-teal">💧</div><div class="cert-info"><div class="cert-name">GlamConnect Hygiene Certificate</div><div class="cert-issuer">Score: 91% · All 6 modules</div><div class="cert-valid">✓ Valid until March 2027 · ID: GC-HYG-284710</div></div></div>
+        <div class="cert-card"><div class="cert-icon-wrap ci-gold">🌿</div><div class="cert-info"><div class="cert-name">Vitiligo Coverage Specialist</div><div class="cert-issuer">GlamConnect Specialist Certification</div><div class="cert-valid">✓ Certified · 2025</div></div></div>
+        <div class="cert-card"><div class="cert-icon-wrap ci-purple">💍</div><div class="cert-info"><div class="cert-name">North Indian Bridal Specialist</div><div class="cert-issuer">GlamConnect Regional Certification</div><div class="cert-valid">✓ Certified · 2024</div></div></div>
+        <div class="cert-card"><div class="cert-icon-wrap ci-green">🎓</div><div class="cert-info"><div class="cert-name">VLCC Professional Diploma</div><div class="cert-issuer">VLCC Institute · Advanced Makeup</div><div class="cert-valid">✓ Graduated 2016</div></div></div>
+        <div class="cert-card"><div class="cert-icon-wrap ci-gold">🏆</div><div class="cert-info"><div class="cert-name">GlamConnect Diamond Artist</div><div class="cert-issuer">200+ bookings · 4.9★ rating</div><div class="cert-valid">✓ Milestone achieved 2025</div></div></div>
+        <div class="cert-card"><div class="cert-icon-wrap ci-teal">🤵</div><div class="cert-info"><div class="cert-name">Groom Grooming Specialist</div><div class="cert-issuer">GlamConnect Groom Certification</div><div class="cert-valid">✓ Certified · 2025</div></div></div>
+      </div>
+      <div style="background:var(--blue-bg);border:1px solid rgba(29,78,216,0.1);border-radius:10px;padding:12px 14px;margin-top:14px;font-size:0.8rem;color:var(--blue);line-height:1.7;" class="en">
+        🔒 <strong>Verification Transparency:</strong> All certifications are verified by GlamConnect and can be independently confirmed. Police clearance certificates are renewed annually. Hygiene certificates are renewed every 12 months. Any certificate displayed on a GlamConnect profile has been reviewed by our team.
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT TAB -->
+  <div class="tab-pane" id="tab-about">
+    <div class="card">
+      <div class="card-title en">About Priya</div>
+      <div class="about-section">
+        <p class="en">Priya Sharma is a senior bridal and specialist makeup artist based in South Delhi with over 8 years of professional experience. She trained at VLCC Institute and has completed over 380 bookings on GlamConnect, maintaining a 4.9-star rating across 142 verified client reviews.</p>
+        <p class="hi">प्रिया शर्मा साउथ दिल्ली में स्थित एक वरिष्ठ ब्राइडल और स्पेशलिस्ट मेकअप आर्टिस्ट हैं, जिनके पास 8 साल से अधिक का पेशेवर अनुभव है।</p>
+        <h4 class="en">What makes Priya different</h4>
+        <p class="en">Priya holds a GlamConnect <strong>Vitiligo Coverage Specialist</strong> certification — one of very few artists in Delhi trained specifically in colour-matching and camouflage techniques for vitiligo skin. She also holds a <strong>North Indian Bridal Specialist</strong> certification, recognising her deep expertise in the specific makeup and hair requirements of Punjabi, Rajasthani, and UP-style bridal traditions.</p>
+        <h4 class="en">Service Philosophy</h4>
+        <p class="en">Priya believes every client deserves to feel genuinely beautiful — not just made up. Her pre-bridal consultations are not a formality: she uses them to understand skin tone, undertone, outfit colours, jewellery, and the emotional story of the occasion before selecting a single product. Clients with skin conditions receive the same respect, care, and quality of service as any other client — without comment on their condition unless they choose to discuss it.</p>
+        <h4 class="en">Languages</h4>
+        <div class="lang-spoken">
+          <span class="lang-chip">Hindi</span>
+          <span class="lang-chip">English</span>
+          <span class="lang-chip">Punjabi</span>
+        </div>
+        <h4 class="en">Service Area</h4>
+        <p class="en">South Delhi (home base) · North Delhi · Gurgaon · Noida · Travel to venue anywhere in NCR · Travel artist for destination weddings (surcharge applies)</p>
+        <h4 class="en">Response Time</h4>
+        <p class="en">Priya typically accepts or declines booking requests within <strong>90 minutes</strong>. WhatsApp responses during working hours (8 AM–8 PM) within 2 hours.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /content-col -->
+
+<!-- STICKY SIDEBAR -->
+<div>
+  <div class="sticky-book-card">
+    <div class="sbc-from en">Starting from</div>
+    <div class="sbc-price">₹1,800</div>
+    <div class="sbc-rating">⭐ 4.9 <span style="font-size:0.72rem;color:var(--muted);font-weight:400;">(142 reviews)</span></div>
+    <select class="sbc-select" id="sb-service" onchange="updateSidebarPrice()">
+      <option value="3500">💍 Bridal Makeup — ₹3,500</option>
+      <option value="6500">👑 Full Bridal Package — ₹6,500</option>
+      <option value="1800">🎉 Party Makeup — ₹1,800</option>
+      <option value="2800">🌿 Vitiligo Specialist — ₹2,800</option>
+      <option value="9500">📅 Pre-Bridal Programme — ₹9,500</option>
+      <option value="1500">💼 Corporate — ₹1,500</option>
+    </select>
+    <div class="sbc-date-row">
+      <input class="sbc-input" id="sb-date" type="date"/>
+      <select class="sbc-input">
+        <option>8:00 AM</option><option>9:00 AM</option><option>10:00 AM</option><option>11:00 AM</option>
+      </select>
+    </div>
+    <div class="price-breakdown">
+      <div class="pb-row"><span class="en">Service</span><span id="sb-price">₹3,500</span></div>
+      <div class="pb-row pb-commission"><span class="en" style="color:var(--green);">Commission (10%)</span><span style="color:var(--green);" id="sb-commission">₹350</span></div>
+      <div class="pb-row"><span>GST</span><span id="sb-gst">₹63</span></div>
+      <div class="pb-row total"><span class="en">Total</span><span id="sb-total">₹3,913</span></div>
+      <div class="pb-row dep"><span class="en">Pay now (20%)</span><span id="sb-deposit">₹783</span></div>
+    </div>
+    <div class="upi-nudge">💚 <span class="en">Pay with UPI — save ₹20</span></div>
+    <!-- Allergy mini -->
+    <div class="sbc-allergy">
+      <div class="sbc-allergy-label en">⚠️ Any allergies? (select all that apply)</div>
+      <div class="allergy-mini-chips">
+        <button class="amc" onclick="this.classList.toggle('sel')">Latex</button>
+        <button class="amc" onclick="this.classList.toggle('sel')">Nuts</button>
+        <button class="amc" onclick="this.classList.toggle('sel')">Fragrance</button>
+        <button class="amc" onclick="this.classList.toggle('sel')">None</button>
+      </div>
+    </div>
+    <div class="sbc-consent">
+      <input type="checkbox" id="sb-consent"/>
+      <span class="en">I agree to <a href="glamconnect-legal-pages.html">Terms</a> & <a href="glamconnect-legal-pages.html">Privacy Policy</a>. Artist is an independent contractor.</span>
+    </div>
+    <button class="book-cta-btn" onclick="bookFromSidebar()">
+      <span class="en">Book Priya →</span><span class="hi">प्रिया को बुक करें →</span>
+    </button>
+    <button class="whatsapp-cta" onclick="openWhatsApp()">
+      <svg width="16" height="16" fill="rgba(37,211,102,0.9)" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span class="en">Message Priya on WhatsApp</span>
+    </button>
+    <div class="trust-stack">
+      <div class="ts-item"><svg width="12" height="12" fill="none" stroke="var(--green)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span class="en">Police verified · Aadhaar confirmed</span></div>
+      <div class="ts-item"><svg width="12" height="12" fill="none" stroke="var(--green)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span class="en">Free cancellation up to 24 hrs</span></div>
+      <div class="ts-item"><svg width="12" height="12" fill="none" stroke="var(--green)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span class="en">Emergency replacement guaranteed</span></div>
+      <div class="ts-item"><svg width="12" height="12" fill="none" stroke="var(--green)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><span class="en">10% commission · No hidden fees</span></div>
+    </div>
+  </div>
+
+  <!-- Mini availability -->
+  <div class="avail-card">
+    <div class="avail-title en">April Availability</div>
+    <div class="avail-grid">
+      <div style="font-size:0.6rem;color:var(--muted);text-align:center;">Su</div><div style="font-size:0.6rem;color:var(--muted);text-align:center;">Mo</div><div style="font-size:0.6rem;color:var(--muted);text-align:center;">Tu</div><div style="font-size:0.6rem;color:var(--muted);text-align:center;">We</div><div style="font-size:0.6rem;color:var(--muted);text-align:center;">Th</div><div style="font-size:0.6rem;color:var(--muted);text-align:center;">Fr</div><div style="font-size:0.6rem;color:var(--muted);text-align:center;">Sa</div>
+      <div class="avail-day past">30</div><div class="avail-day past">31</div><div class="avail-day av" onclick="quickBook(1)">1</div><div class="avail-day av" onclick="quickBook(2)">2</div><div class="avail-day av" onclick="quickBook(3)">3</div><div class="avail-day av" onclick="quickBook(4)">4</div><div class="avail-day bk">5</div>
+      <div class="avail-day av" onclick="quickBook(6)">6</div><div class="avail-day av" onclick="quickBook(7)">7</div><div class="avail-day av" onclick="quickBook(8)">8</div><div class="avail-day av" onclick="quickBook(9)">9</div><div class="avail-day av" onclick="quickBook(10)">10</div><div class="avail-day av" onclick="quickBook(11)">11</div><div class="avail-day today bk">12</div>
+      <div class="avail-day bk">13</div><div class="avail-day av" onclick="quickBook(14)">14</div><div class="avail-day av" onclick="quickBook(15)">15</div><div class="avail-day av" onclick="quickBook(16)">16</div><div class="avail-day av" onclick="quickBook(17)">17</div><div class="avail-day av" onclick="quickBook(18)">18</div><div class="avail-day av" onclick="quickBook(19)">19</div>
+      <div class="avail-day av" onclick="quickBook(20)">20</div><div class="avail-day av" onclick="quickBook(21)">21</div><div class="avail-day av" onclick="quickBook(22)">22</div><div class="avail-day av" onclick="quickBook(23)">23</div><div class="avail-day av" onclick="quickBook(24)">24</div><div class="avail-day av" onclick="quickBook(25)">25</div><div class="avail-day bk">26</div>
+    </div>
+    <div class="avail-legend">
+      <span><span class="al-dot" style="background:var(--green);"></span>Available</span>
+      <span><span class="al-dot" style="background:var(--rose-soft);border:1px solid var(--rose);"></span>Booked</span>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main-wrap -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ── LANG ──
+function setLang(l){
+  document.body.classList.toggle('hindi-mode',l==='hi');
+  document.getElementById('en-btn').classList.toggle('active',l==='en');
+  document.getElementById('hi-btn').classList.toggle('active',l==='hi');
+  localStorage.setItem('gc_lang',l);
+}
+if(localStorage.getItem('gc_lang')==='hi')setLang('hi');
+
+// Min date
+const today=new Date().toISOString().split('T')[0];
+['sb-date','bm-date'].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el){el.min=today;el.value=today;}
+});
+
+// ── TABS ──
+function switchTab(id,btn){
+  document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-nav-btn').forEach(b=>b.classList.remove('active'));
+  const pane=document.getElementById('tab-'+id);
+  if(pane)pane.classList.add('active');
+  if(btn)btn.classList.add('active');
+  window.scrollTo({top:64,behavior:'smooth'});
+}
+
+// ── WISHLIST ──
+let wishlisted=false;
+function toggleWishlist(){
+  wishlisted=!wishlisted;
+  const btn=document.getElementById('wishlistBtn');
+  btn.classList.toggle('liked',wishlisted);
+  showToast('ok',wishlisted?'💕 Priya saved to your wishlist':'Removed from wishlist');
+}
+
+// ── PRICE CALC ──
+const fmt=n=>n.toLocaleString('en-IN');
+function calcPrice(p){
+  const c=Math.round(p*0.10),g=Math.round(c*0.18),t=p+c+g,d=Math.round(t*0.20);
+  return{c,g,t,d};
+}
+function updateSidebarPrice(){
+  const p=parseInt(document.getElementById('sb-service').value)||3500;
+  const{c,g,t,d}=calcPrice(p);
+  document.getElementById('sb-price').textContent='₹'+fmt(p);
+  document.getElementById('sb-commission').textContent='₹'+fmt(c);
+  document.getElementById('sb-gst').textContent='₹'+fmt(g);
+  document.getElementById('sb-total').textContent='₹'+fmt(t);
+  document.getElementById('sb-deposit').textContent='₹'+fmt(d);
+}
+function updateBookingPrice(){
+  const p=parseInt(document.getElementById('bm-service').value)||3500;
+  const{c,g,t,d}=calcPrice(p);
+  document.getElementById('bm-price').textContent='₹'+fmt(p);
+  document.getElementById('bm-commission').textContent='₹'+fmt(c);
+  document.getElementById('bm-gst').textContent='₹'+fmt(g);
+  document.getElementById('bm-total').textContent='₹'+fmt(t);
+  document.getElementById('bm-deposit').textContent='₹'+fmt(d);
+}
+
+// ── BOOKING MODAL ──
+function openBookingModal(){
+  document.getElementById('bookingModal').classList.add('open');
+  updateBookingPrice();
+}
+function closeBookingModal(){document.getElementById('bookingModal').classList.remove('open');}
+document.getElementById('bookingModal').addEventListener('click',function(e){if(e.target===this)closeBookingModal();});
+
+function bookFromSidebar(){
+  const consent=document.getElementById('sb-consent').checked;
+  if(!consent){showToast('err','Please accept the Terms to continue');return;}
+  openBookingModal();
+}
+
+function confirmBooking(){
+  const consent=document.getElementById('bm-consent').checked;
+  if(!consent){showToast('err','Please accept the Terms to continue');return;}
+  closeBookingModal();
+  setTimeout(()=>{
+    const ref='GC-'+Date.now().toString().slice(-6);
+    alert('✅ Booking Confirmed!\n\nBooking ID: '+ref+'\nArtist: Priya Sharma\nWhatsApp confirmation arriving within 5 minutes.\n\nEmergency replacement guaranteed if needed. Thank you for choosing GlamConnect.');
+  },300);
+}
+
+// ── PORTFOLIO ──
+const portImages=[
+  'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=900&h=900&fit=crop',
+  'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=900&h=900&fit=crop',
+  'https://images.unsplash.com/photo-1498551172505-8137406b75d1?w=900&h=900&fit=crop',
+  'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=900&h=900&fit=crop',
+  'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=900&h=900&fit=crop',
+  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&h=900&fit=crop',
+  'https://images.unsplash.com/photo-1519741497674-611481863552?w=900&h=900&fit=crop',
+  'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=900&h=900&fit=crop',
+  'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=900&h=900&fit=crop',
+];
+let currentPortIdx=0;
+function openPortModal(idx){
+  currentPortIdx=idx;
+  document.getElementById('portModalImg').src=portImages[idx];
+  document.getElementById('portModal').classList.add('open');
+}
+function closePortModal(){document.getElementById('portModal').classList.remove('open');}
+function navPort(dir){
+  currentPortIdx=(currentPortIdx+dir+portImages.length)%portImages.length;
+  document.getElementById('portModalImg').src=portImages[currentPortIdx];
+}
+document.getElementById('portModal').addEventListener('click',function(e){if(e.target===this)closePortModal();});
+
+function filterPortfolio(type,btn){
+  document.querySelectorAll('#portfolioGrid .portfolio-item').forEach(item=>{
+    item.style.display=(type==='all'||item.dataset.type===type)?'block':'none';
+  });
+}
+
+// ── QUICK BOOK FROM CALENDAR ──
+function quickBook(day){
+  const date=new Date();
+  date.setDate(day);
+  const d=date.toISOString().split('T')[0];
+  document.getElementById('sb-date').value=d;
+  document.getElementById('bm-date').value=d;
+  openBookingModal();
+  showToast('ok','April '+day+' selected — complete booking below');
+}
+
+// ── SHARE ──
+function shareProfile(){
+  if(navigator.share){navigator.share({title:'Priya Sharma — Verified Artist on GlamConnect',url:window.location.href});}
+  else{navigator.clipboard.writeText(window.location.href);showToast('ok','Profile link copied!');}
+}
+
+// ── WHATSAPP ──
+function openWhatsApp(){
+  const msg=encodeURIComponent("Hi Priya! I found your profile on GlamConnect and I'd like to discuss a booking.");
+  window.open('https://wa.me/919876543210?text='+msg,'_blank');
+}
+
+// ── TOAST ──
+function showToast(type,msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.className='toast show '+type;
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+</script>
+</body>
+</html>

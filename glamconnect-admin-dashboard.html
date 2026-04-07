@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Admin Dashboard — GlamConnect Platform Health</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#060B14;--surface:#0D1520;--surface2:#111D2E;--surface3:#172438;
+  --border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.10);
+  --teal:#2DD4BF;--teal-soft:rgba(45,212,191,0.10);
+  --gold:#F59E0B;--gold-soft:rgba(245,158,11,0.12);
+  --rose:#F43F5E;--rose-soft:rgba(244,63,94,0.10);
+  --green:#10B981;--green-soft:rgba(16,185,129,0.12);
+  --blue:#3B82F6;--blue-soft:rgba(59,130,246,0.10);
+  --purple:#8B5CF6;--purple-soft:rgba(139,92,246,0.10);
+  --amber:#F59E0B;--amber-soft:rgba(245,158,11,0.10);
+  --red:#EF4444;--red-soft:rgba(239,68,68,0.10);
+  --white:#FFFFFF;--text:#E2E8F0;--text2:#94A3B8;--text3:#64748B;
+  --sidebar-w:220px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;}
+
+/* SIDEBAR */
+.sidebar{width:var(--sidebar-w);background:var(--surface);border-right:1px solid var(--border);height:100vh;position:fixed;top:0;left:0;display:flex;flex-direction:column;z-index:50;overflow-y:auto;}
+.sb-logo{padding:18px 16px;border-bottom:1px solid var(--border);}
+.sb-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--teal);}
+.sb-logo-text span{color:var(--gold);}
+.sb-logo-sub{font-size:0.62rem;color:var(--text3);margin-top:2px;text-transform:uppercase;letter-spacing:0.5px;}
+.sb-founder{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;}
+.sb-founder-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--purple));display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;color:white;flex-shrink:0;}
+.sb-founder-name{font-size:0.8rem;font-weight:700;color:var(--white);}
+.sb-founder-role{font-size:0.65rem;color:var(--teal);margin-top:1px;}
+.sb-section{padding:10px 8px 4px;}
+.sb-section-label{font-size:0.6rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.7px;padding:0 8px;margin-bottom:4px;}
+.sb-item{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:8px;cursor:pointer;transition:all 0.2s;color:var(--text2);font-size:0.8rem;font-weight:500;margin-bottom:1px;}
+.sb-item:hover{background:var(--surface2);color:var(--text);}
+.sb-item.active{background:var(--teal-soft);color:var(--teal);}
+.sb-item svg{flex-shrink:0;width:14px;height:14px;}
+.sb-badge{margin-left:auto;font-size:0.6rem;font-weight:700;padding:2px 6px;border-radius:50px;}
+.sb-badge.red{background:var(--rose-soft);color:var(--rose);}
+.sb-badge.amber{background:var(--amber-soft);color:var(--amber);}
+.sb-badge.green{background:var(--green-soft);color:var(--green);}
+.sb-bottom{margin-top:auto;padding:12px;border-top:1px solid var(--border);}
+.platform-status{display:flex;align-items:center;gap:6px;font-size:0.72rem;font-weight:600;color:var(--green);background:var(--green-soft);padding:7px 12px;border-radius:8px;margin-bottom:8px;}
+.status-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+.sb-version{font-size:0.62rem;color:var(--text3);text-align:center;}
+
+/* MAIN */
+.main{margin-left:var(--sidebar-w);flex:1;min-height:100vh;display:flex;flex-direction:column;}
+.topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:40;}
+.topbar-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--white);}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.tb-btn{background:var(--surface2);border:1px solid var(--border2);color:var(--text2);padding:6px 12px;border-radius:8px;font-size:0.75rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.tb-btn:hover{border-color:var(--teal);color:var(--teal);}
+.tb-btn.red{border-color:rgba(239,68,68,0.3);color:var(--red);}
+.refresh-indicator{font-size:0.7rem;color:var(--text3);display:flex;align-items:center;gap:5px;}
+.refresh-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 1.5s infinite;}
+
+/* PAGE */
+.page{padding:20px 24px 48px;display:none;}
+.page.active{display:block;}
+
+/* ALERT BANNER */
+.alert-banner{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);border-radius:10px;padding:12px 16px;margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.alert-banner.warn{background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.2);}
+.alert-banner.info{background:var(--teal-soft);border-color:rgba(45,212,191,0.2);}
+.ab-icon{font-size:1.1rem;flex-shrink:0;}
+.ab-text{font-size:0.82rem;color:var(--text);line-height:1.5;flex:1;}
+.ab-text strong{color:var(--white);}
+.ab-close{background:none;border:none;color:var(--text3);cursor:pointer;font-size:0.9rem;flex-shrink:0;}
+
+/* KPI GRID */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px;}
+.kpi-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;}
+.kpi-label{font-size:0.67rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;}
+.kpi-value{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--white);line-height:1;}
+.kpi-value.teal{color:var(--teal);}
+.kpi-value.gold{color:var(--gold);}
+.kpi-value.green{color:var(--green);}
+.kpi-value.rose{color:var(--rose);}
+.kpi-change{font-size:0.7rem;color:var(--text3);margin-top:5px;display:flex;align-items:center;gap:4px;}
+.kpi-change.up{color:var(--green);}
+.kpi-change.down{color:var(--rose);}
+.kpi-sparkline{display:flex;align-items:flex-end;gap:2px;height:28px;margin-top:8px;}
+.spark-bar{flex:1;border-radius:2px 2px 0 0;background:var(--border);min-height:3px;transition:height 0.3s;}
+.spark-bar.teal{background:var(--teal);}
+.spark-bar.gold{background:var(--gold);}
+.spark-bar.green{background:var(--green);}
+.spark-bar.rose{background:var(--rose);}
+
+/* 2-COL GRID */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:16px;}
+
+/* CARDS */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:16px;}
+.card-head{padding:14px 18px 10px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.ch-left{display:flex;align-items:center;gap:8px;}
+.card-icon{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;flex-shrink:0;}
+.ci-teal{background:var(--teal-soft);color:var(--teal);}
+.ci-gold{background:var(--gold-soft);color:var(--gold);}
+.ci-green{background:var(--green-soft);color:var(--green);}
+.ci-rose{background:var(--rose-soft);color:var(--rose);}
+.ci-blue{background:var(--blue-soft);color:var(--blue);}
+.ci-purple{background:var(--purple-soft);color:var(--purple);}
+.ci-amber{background:var(--amber-soft);color:var(--amber);}
+.ci-red{background:var(--red-soft);color:var(--red);}
+.card-title{font-size:0.85rem;font-weight:700;color:var(--white);}
+.card-sub{font-size:0.68rem;color:var(--text3);margin-top:1px;}
+.card-body{padding:16px 18px;}
+.card-action{font-size:0.72rem;font-weight:600;color:var(--teal);cursor:pointer;background:none;border:none;font-family:'DM Sans',sans-serif;}
+
+/* TABLE */
+.data-table{width:100%;border-collapse:collapse;}
+.data-table th{font-size:0.65rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);}
+.data-table td{font-size:0.78rem;color:var(--text);padding:10px 10px;border-bottom:1px solid var(--border);}
+.data-table tr:last-child td{border-bottom:none;}
+.data-table tr:hover td{background:var(--surface2);}
+.td-bold{font-weight:600;color:var(--white);}
+.status-pill{font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:50px;}
+.sp-confirmed{background:var(--green-soft);color:var(--green);}
+.sp-pending{background:var(--gold-soft);color:var(--gold);}
+.sp-completed{background:var(--teal-soft);color:var(--teal);}
+.sp-cancelled{background:var(--red-soft);color:var(--red);}
+.sp-alert{background:var(--rose-soft);color:var(--rose);}
+.sp-ok{background:var(--green-soft);color:var(--green);}
+.sp-warn{background:var(--amber-soft);color:var(--amber);}
+
+/* HEALTH METERS */
+.health-meter{margin-bottom:14px;}
+.hm-top{display:flex;justify-content:space-between;font-size:0.75rem;margin-bottom:5px;}
+.hm-label{color:var(--text2);font-weight:500;}
+.hm-value{font-weight:700;}
+.hm-bar{height:6px;background:var(--surface3);border-radius:3px;overflow:hidden;}
+.hm-fill{height:100%;border-radius:3px;transition:width 0.6s ease;}
+.hm-fill.green{background:var(--green);}
+.hm-fill.gold{background:var(--gold);}
+.hm-fill.rose{background:var(--rose);}
+.hm-fill.teal{background:var(--teal);}
+.hm-fill.blue{background:var(--blue);}
+
+/* API COST TRACKER */
+.api-cost-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);}
+.api-cost-row:last-child{border-bottom:none;}
+.acr-label{font-size:0.78rem;color:var(--text2);display:flex;align-items:center;gap:6px;}
+.acr-amount{font-size:0.82rem;font-weight:700;color:var(--white);}
+.acr-bar-wrap{width:80px;height:5px;background:var(--surface3);border-radius:3px;overflow:hidden;margin-top:3px;}
+.acr-bar{height:100%;border-radius:3px;}
+
+/* BOOKING FUNNEL */
+.funnel-step{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);}
+.funnel-step:last-child{border-bottom:none;}
+.fs-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;min-width:60px;color:var(--white);}
+.fs-label{font-size:0.78rem;color:var(--text2);flex:1;}
+.fs-pct{font-size:0.72rem;font-weight:700;color:var(--text3);}
+.fs-bar-wrap{width:100px;height:5px;background:var(--surface3);border-radius:3px;overflow:hidden;}
+.fs-bar{height:100%;background:var(--teal);border-radius:3px;}
+
+/* LIVE FEED */
+.live-feed{display:flex;flex-direction:column;gap:0;}
+.lf-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);}
+.lf-item:last-child{border-bottom:none;}
+.lf-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+.lf-dot.green{background:var(--green);}
+.lf-dot.gold{background:var(--gold);}
+.lf-dot.rose{background:var(--rose);}
+.lf-dot.blue{background:var(--blue);}
+.lf-dot.teal{background:var(--teal);}
+.lf-text{font-size:0.78rem;color:var(--text2);line-height:1.5;flex:1;}
+.lf-text strong{color:var(--white);}
+.lf-time{font-size:0.67rem;color:var(--text3);white-space:nowrap;margin-top:2px;}
+
+/* RISK RADAR */
+.risk-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);}
+.risk-row:last-child{border-bottom:none;}
+.risk-icon{font-size:1rem;flex-shrink:0;width:24px;text-align:center;}
+.risk-info{flex:1;}
+.risk-title{font-size:0.8rem;font-weight:700;color:var(--white);}
+.risk-desc{font-size:0.7rem;color:var(--text3);margin-top:1px;}
+.risk-level{font-size:0.67rem;font-weight:700;padding:2px 8px;border-radius:50px;}
+.rl-high{background:var(--rose-soft);color:var(--rose);}
+.rl-med{background:var(--amber-soft);color:var(--amber);}
+.rl-low{background:var(--green-soft);color:var(--green);}
+.rl-monitor{background:var(--blue-soft);color:var(--blue);}
+
+/* CHART BARS */
+.bar-chart{display:flex;align-items:flex-end;gap:5px;height:80px;}
+.bc-item{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;}
+.bc-bar{width:100%;border-radius:3px 3px 0 0;background:var(--teal);min-height:4px;transition:height 0.5s;}
+.bc-bar.gold{background:var(--gold);}
+.bc-bar.rose{background:var(--rose);}
+.bc-label{font-size:0.6rem;color:var(--text3);}
+.bc-val{font-size:0.62rem;color:var(--teal);}
+
+/* CITY MAP TABLE */
+.city-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);}
+.city-row:last-child{border-bottom:none;}
+.city-name{font-size:0.8rem;font-weight:600;color:var(--white);min-width:90px;}
+.city-bar-wrap{flex:1;height:5px;background:var(--surface3);border-radius:3px;overflow:hidden;}
+.city-bar{height:100%;background:var(--teal);border-radius:3px;}
+.city-count{font-size:0.72rem;color:var(--text2);min-width:50px;text-align:right;}
+.city-status{font-size:0.65rem;font-weight:700;padding:2px 7px;border-radius:50px;margin-left:6px;}
+
+/* MOBILE */
+@media(max-width:900px){
+  .sidebar{display:none;}
+  .main{margin-left:0;}
+  .kpi-grid{grid-template-columns:1fr 1fr;}
+  .two-col,.three-col{grid-template-columns:1fr;}
+}
+
+/* TOAST */
+.toast{position:fixed;bottom:20px;right:20px;background:var(--surface);border:1px solid var(--border2);color:var(--text);padding:10px 16px;border-radius:10px;font-size:0.8rem;opacity:0;transition:all 0.3s;pointer-events:none;z-index:999;}
+.toast.show{opacity:1;}
+.toast.ok{border-color:var(--green);color:var(--green);}
+.toast.warn{border-color:var(--amber);color:var(--amber);}
+.toast.err{border-color:var(--red);color:var(--red);}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sb-logo">
+    <div class="sb-logo-text">Glam<span>Connect</span></div>
+    <div class="sb-logo-sub">Founder Admin Panel</div>
+  </div>
+  <div class="sb-founder">
+    <div class="sb-founder-avatar">AJ</div>
+    <div>
+      <div class="sb-founder-name">Abhishek Jaiswal</div>
+      <div class="sb-founder-role">Founder & Admin</div>
+    </div>
+  </div>
+  <div class="sb-section">
+    <div class="sb-section-label">Platform</div>
+    <div class="sb-item active" onclick="switchPage('overview',this)">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Overview
+    </div>
+    <div class="sb-item" onclick="switchPage('bookings',this)">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg>
+      All Bookings
+      <span class="sb-badge amber">3</span>
+    </div>
+    <div class="sb-item" onclick="switchPage('artists',this)">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      Artists
+      <span class="sb-badge red">2</span>
+    </div>
+    <div class="sb-item" onclick="switchPage('finance',this)">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      Finance & TDS
+    </div>
+  </div>
+  <div class="sb-section">
+    <div class="sb-section-label">Infrastructure</div>
+    <div class="sb-item" onclick="switchPage('tech',this)">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      Tech & API Health
+      <span class="sb-badge amber">1</span>
+    </div>
+    <div class="sb-item" onclick="switchPage('safety',this)">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Safety & Incidents
+    </div>
+    <div class="sb-item" onclick="switchPage('cities',this)">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      City Performance
+    </div>
+    <div class="sb-item" onclick="switchPage('risks',this)">
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      Risk Radar
+      <span class="sb-badge red">2</span>
+    </div>
+  </div>
+  <div class="sb-bottom">
+    <div class="platform-status">
+      <div class="status-dot"></div>
+      All Systems Operational
+    </div>
+    <div class="sb-version">GlamConnect Admin v2.0</div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-title" id="page-title">Platform Overview</div>
+    <div class="topbar-right">
+      <div class="refresh-indicator"><div class="refresh-dot"></div>Live — refreshes every 60s</div>
+      <button class="tb-btn" onclick="simulateRefresh()">⟳ Refresh</button>
+      <button class="tb-btn" onclick="window.location.href='glamconnect-homepage-v2.html'">← Home</button>
+    </div>
+  </div>
+
+  <!-- ══ OVERVIEW PAGE ══ -->
+  <div class="page active" id="page-overview">
+    <!-- Critical alerts -->
+    <div class="alert-banner" id="alert1">
+      <div class="ab-icon">🚨</div>
+      <div class="ab-text"><strong>2 Artists Flagged:</strong> Police verification expired for Divya Kapoor (Delhi) and Renu Sharma (Noida). They are automatically hidden from search until renewal. Action required within 7 days.</div>
+      <button class="ab-close" onclick="this.parentElement.style.display='none'">✕</button>
+    </div>
+    <div class="alert-banner warn" id="alert2">
+      <div class="ab-icon">⚠️</div>
+      <div class="ab-text"><strong>Kit Expiry Alert:</strong> 6 artists have products in their kit inventory past PAO. WhatsApp reminder sent automatically. 3 have not acknowledged.</div>
+      <button class="ab-close" onclick="this.parentElement.style.display='none'">✕</button>
+    </div>
+    <div class="alert-banner info">
+      <div class="ab-icon">📅</div>
+      <div class="ab-text"><strong>Peak Date Approaching:</strong> Basant Panchami (Jan 30) — 18 bookings already confirmed. Ensure emergency artist list is ready by Jan 25.</div>
+      <button class="ab-close" onclick="this.parentElement.style.display='none'">✕</button>
+    </div>
+
+    <!-- KPI Grid -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Monthly Revenue<span style="color:var(--green);font-size:0.65rem;">↑18%</span></div>
+        <div class="kpi-value teal">₹2.84L</div>
+        <div class="kpi-change up">↑ ₹43K vs last month</div>
+        <div class="kpi-sparkline" id="spark1"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Total Bookings<span style="color:var(--green);font-size:0.65rem;">↑14%</span></div>
+        <div class="kpi-value gold">94</div>
+        <div class="kpi-change up">↑ 12 vs last month</div>
+        <div class="kpi-sparkline" id="spark2"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Active Artists</div>
+        <div class="kpi-value green">127</div>
+        <div class="kpi-change">142 total · 15 pending verify</div>
+        <div class="kpi-sparkline" id="spark3"></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Platform Commission</div>
+        <div class="kpi-value rose">₹28.4K</div>
+        <div class="kpi-change">10% of ₹2.84L GMV</div>
+        <div class="kpi-sparkline" id="spark4"></div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <!-- Live Activity Feed -->
+      <div class="card">
+        <div class="card-head">
+          <div class="ch-left"><div class="card-icon ci-teal">⚡</div><div><div class="card-title">Live Platform Activity</div><div class="card-sub">Real-time booking and artist events</div></div></div>
+          <button class="card-action">View all →</button>
+        </div>
+        <div class="card-body">
+          <div class="live-feed">
+            <div class="lf-item"><div class="lf-dot green"></div><div class="lf-text"><strong>Booking confirmed</strong> — Ananya Singh × Priya Sharma, Bridal, ₹3,500</div><div class="lf-time">2 min ago</div></div>
+            <div class="lf-item"><div class="lf-dot gold"></div><div class="lf-text"><strong>New artist registration</strong> — Sunita Devi, Delhi, pending verification</div><div class="lf-time">8 min ago</div></div>
+            <div class="lf-item"><div class="lf-dot teal"></div><div class="lf-text"><strong>Payment processed</strong> — ₹1,800 via UPI, Booking GC-2026-4821</div><div class="lf-time">14 min ago</div></div>
+            <div class="lf-item"><div class="lf-dot green"></div><div class="lf-text"><strong>Hygiene cert renewed</strong> — Meera Kapoor scored 92%</div><div class="lf-time">22 min ago</div></div>
+            <div class="lf-item"><div class="lf-dot rose"></div><div class="lf-text"><strong>Booking cancelled</strong> — Nisha Patel, 18hrs notice, 20% fee applied</div><div class="lf-time">35 min ago</div></div>
+            <div class="lf-item"><div class="lf-dot blue"></div><div class="lf-text"><strong>Review posted</strong> — Kavita Mehta gave Priya Sharma 5★ · "Perfect bridal look"</div><div class="lf-time">1 hr ago</div></div>
+            <div class="lf-item"><div class="lf-dot gold"></div><div class="lf-text"><strong>Referral activated</strong> — Sonal Gupta referred Rhea Sharma, both get ₹150 credit</div><div class="lf-time">2 hrs ago</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Platform Health -->
+      <div class="card">
+        <div class="card-head">
+          <div class="ch-left"><div class="card-icon ci-green">💚</div><div><div class="card-title">Platform Health Meters</div><div class="card-sub">Key operational metrics</div></div></div>
+        </div>
+        <div class="card-body">
+          <div class="health-meter"><div class="hm-top"><span class="hm-label">Payment Success Rate</span><span class="hm-value" style="color:var(--green);">98.2%</span></div><div class="hm-bar"><div class="hm-fill green" style="width:98%;"></div></div></div>
+          <div class="health-meter"><div class="hm-top"><span class="hm-label">Artist Acceptance Rate</span><span class="hm-value" style="color:var(--green);">94.7%</span></div><div class="hm-bar"><div class="hm-fill green" style="width:95%;"></div></div></div>
+          <div class="health-meter"><div class="hm-top"><span class="hm-label">On-Time Artist Arrival</span><span class="hm-value" style="color:var(--teal);">96.1%</span></div><div class="hm-bar"><div class="hm-fill teal" style="width:96%;"></div></div></div>
+          <div class="health-meter"><div class="hm-top"><span class="hm-label">Client Repeat Booking Rate</span><span class="hm-value" style="color:var(--gold);">27.4%</span></div><div class="hm-bar"><div class="hm-fill gold" style="width:27%;"></div></div></div>
+          <div class="health-meter"><div class="hm-top"><span class="hm-label">Artist Churn This Month</span><span class="hm-value" style="color:var(--green);">3.1%</span></div><div class="hm-bar"><div class="hm-fill green" style="width:3%;"></div></div></div>
+          <div class="health-meter"><div class="hm-top"><span class="hm-label">Supabase DB (daily backup ✓)</span><span class="hm-value" style="color:var(--green);">99.9%</span></div><div class="hm-bar"><div class="hm-fill green" style="width:99%;"></div></div></div>
+          <div class="health-meter"><div class="hm-top"><span class="hm-label">NPS Score</span><span class="hm-value" style="color:var(--teal);">54</span></div><div class="hm-bar"><div class="hm-fill teal" style="width:72%;"></div></div></div>
+          <div class="health-meter"><div class="hm-top"><span class="hm-label">Grievances Resolved (48hr)</span><span class="hm-value" style="color:var(--green);">100%</span></div><div class="hm-bar"><div class="hm-fill green" style="width:100%;"></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking Funnel + Revenue Chart -->
+    <div class="two-col">
+      <div class="card">
+        <div class="card-head"><div class="ch-left"><div class="card-icon ci-blue">📊</div><div><div class="card-title">Booking Conversion Funnel</div><div class="card-sub">This month — homepage to confirmed</div></div></div></div>
+        <div class="card-body">
+          <div class="funnel-step"><div class="fs-num">4,820</div><div class="fs-label">Homepage visits</div><div class="fs-bar-wrap"><div class="fs-bar" style="width:100%;"></div></div><div class="fs-pct">100%</div></div>
+          <div class="funnel-step"><div class="fs-num">1,247</div><div class="fs-label">Artist profile views</div><div class="fs-bar-wrap"><div class="fs-bar" style="width:26%;"></div></div><div class="fs-pct">26%</div></div>
+          <div class="funnel-step"><div class="fs-num">386</div><div class="fs-label">Booking flow started</div><div class="fs-bar-wrap"><div class="fs-bar" style="width:8%;"></div></div><div class="fs-pct">8%</div></div>
+          <div class="funnel-step"><div class="fs-num">142</div><div class="fs-label">Payment initiated</div><div class="fs-bar-wrap"><div class="fs-bar" style="width:3%;"></div></div><div class="fs-pct">3%</div></div>
+          <div class="funnel-step"><div class="fs-num">94</div><div class="fs-label">Booking confirmed</div><div class="fs-bar-wrap"><div class="fs-bar" style="width:1.9%;background:var(--gold);"></div></div><div class="fs-pct" style="color:var(--gold);">2%</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><div class="ch-left"><div class="card-icon ci-gold">💰</div><div><div class="card-title">Revenue by Category</div><div class="card-sub">Platform commission earned this month</div></div></div></div>
+        <div class="card-body">
+          <div id="categoryChart" style="margin-bottom:14px;"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <div style="font-size:0.75rem;color:var(--text2);">💍 Bridal &nbsp;&nbsp;<strong style="color:var(--teal);">₹16,200</strong></div>
+            <div style="font-size:0.75rem;color:var(--text2);">🎉 Party &nbsp;&nbsp;<strong style="color:var(--gold);">₹6,800</strong></div>
+            <div style="font-size:0.75rem;color:var(--text2);">🤵 Groom &nbsp;&nbsp;<strong style="color:var(--green);">₹2,400</strong></div>
+            <div style="font-size:0.75rem;color:var(--text2);">🌿 Specialist &nbsp;&nbsp;<strong style="color:var(--purple);">₹1,800</strong></div>
+            <div style="font-size:0.75rem;color:var(--text2);">💼 Corporate &nbsp;&nbsp;<strong style="color:var(--blue);">₹900</strong></div>
+            <div style="font-size:0.75rem;color:var(--text2);">📸 Editorial &nbsp;&nbsp;<strong style="color:var(--rose);">₹300</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ARTISTS PAGE ══ -->
+  <div class="page" id="page-artists">
+    <div class="three-col">
+      <div class="kpi-card"><div class="kpi-label">Total Artists</div><div class="kpi-value teal">142</div><div class="kpi-change up">↑ 8 this month</div></div>
+      <div class="kpi-card"><div class="kpi-label">Fully Verified</div><div class="kpi-value green">127</div><div class="kpi-change">Police + Aadhaar + Hygiene</div></div>
+      <div class="kpi-card"><div class="kpi-label">Attention Needed</div><div class="kpi-value rose">15</div><div class="kpi-change down">2 expired · 13 pending</div></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="ch-left"><div class="card-icon ci-rose">⚠️</div><div><div class="card-title">Artists Requiring Action</div><div class="card-sub">Must be resolved before they can accept bookings</div></div></div></div>
+      <div class="card-body">
+        <table class="data-table">
+          <thead><tr><th>Artist</th><th>City</th><th>Issue</th><th>Days Left</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td class="td-bold">Divya Kapoor</td><td>South Delhi</td><td>Police verification expired</td><td style="color:var(--rose);">0 days</td><td><span class="status-pill sp-alert">Hidden</span></td><td><button style="background:var(--rose-soft);border:1px solid rgba(244,63,94,0.2);color:var(--rose);padding:3px 10px;border-radius:6px;font-size:0.7rem;cursor:pointer;" onclick="showToast('warn','WhatsApp reminder sent to Divya Kapoor')">Send Reminder</button></td></tr>
+            <tr><td class="td-bold">Renu Sharma</td><td>Noida</td><td>Police verification expired</td><td style="color:var(--rose);">0 days</td><td><span class="status-pill sp-alert">Hidden</span></td><td><button style="background:var(--rose-soft);border:1px solid rgba(244,63,94,0.2);color:var(--rose);padding:3px 10px;border-radius:6px;font-size:0.7rem;cursor:pointer;" onclick="showToast('warn','WhatsApp reminder sent to Renu Sharma')">Send Reminder</button></td></tr>
+            <tr><td class="td-bold">Sunita Devi</td><td>Delhi</td><td>New registration — Aadhaar pending</td><td style="color:var(--gold);">7 days</td><td><span class="status-pill sp-pending">Pending</span></td><td><button style="background:var(--gold-soft);border:1px solid rgba(245,158,11,0.2);color:var(--gold);padding:3px 10px;border-radius:6px;font-size:0.7rem;cursor:pointer;" onclick="showToast('ok','Approval link sent to Sunita Devi')">Send Link</button></td></tr>
+            <tr><td class="td-bold">Priya Nair</td><td>Bangalore</td><td>Hygiene certificate due renewal</td><td style="color:var(--gold);">12 days</td><td><span class="status-pill sp-warn">Renew Soon</span></td><td><button style="background:var(--gold-soft);border:1px solid rgba(245,158,11,0.2);color:var(--gold);padding:3px 10px;border-radius:6px;font-size:0.7rem;cursor:pointer;" onclick="showToast('ok','Renewal reminder sent')">Remind</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="ch-left"><div class="card-icon ci-green">✅</div><div><div class="card-title">Top Active Artists This Month</div><div class="card-sub">By bookings completed</div></div></div></div>
+      <div class="card-body">
+        <table class="data-table">
+          <thead><tr><th>Artist</th><th>City</th><th>Bookings</th><th>Revenue (Gross)</th><th>Rating</th><th>Commission 10%</th></tr></thead>
+          <tbody>
+            <tr><td class="td-bold">Priya Sharma</td><td>South Delhi</td><td>14</td><td>₹49,000</td><td>⭐ 4.9</td><td style="color:var(--rose);">₹4,900</td></tr>
+            <tr><td class="td-bold">Ananya Reddy</td><td>Green Park</td><td>11</td><td>₹44,000</td><td>⭐ 4.9</td><td style="color:var(--rose);">₹4,400</td></tr>
+            <tr><td class="td-bold">Nisha Kapoor</td><td>Vasant Kunj</td><td>9</td><td>₹25,200</td><td>⭐ 4.8</td><td style="color:var(--rose);">₹2,520</td></tr>
+            <tr><td class="td-bold">Rahul Mehta</td><td>Lajpat Nagar</td><td>8</td><td>₹20,000</td><td>⭐ 4.8</td><td style="color:var(--rose);">₹2,000</td></tr>
+            <tr><td class="td-bold">Meera Singh</td><td>Saket</td><td>7</td><td>₹12,600</td><td>⭐ 4.7</td><td style="color:var(--rose);">₹1,260</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FINANCE PAGE ══ -->
+  <div class="page" id="page-finance">
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-label">GMV This Month</div><div class="kpi-value teal">₹2.84L</div><div class="kpi-change up">↑ 18% MoM</div></div>
+      <div class="kpi-card"><div class="kpi-label">Net Commission (after MDR)</div><div class="kpi-value gold">₹24,140</div><div class="kpi-change">8.5% net after Razorpay 1.5%</div></div>
+      <div class="kpi-card"><div class="kpi-label">TDS Collected (Auto)</div><div class="kpi-value green">₹28,400</div><div class="kpi-change">Section 194C deducted</div></div>
+      <div class="kpi-card"><div class="kpi-label">GST Liability</div><div class="kpi-value rose">₹4,345</div><div class="kpi-change">18% on commission — file by 20th</div></div>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-head"><div class="ch-left"><div class="card-icon ci-amber">📊</div><div><div class="card-title">Monthly Revenue Trend</div><div class="card-sub">Platform commission earned — 12 months</div></div></div></div>
+        <div class="card-body">
+          <div class="bar-chart" id="revenueChart"></div>
+          <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:0.68rem;color:var(--text3);">
+            <span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span><span>Mar</span>
+          </div>
+          <div style="margin-top:14px;padding:12px;background:var(--surface2);border-radius:10px;">
+            <div style="font-size:0.72rem;font-weight:700;color:var(--amber);margin-bottom:8px;">⚠️ Cash Flow Warning</div>
+            <div style="font-size:0.78rem;color:var(--text2);line-height:1.65;">Off-season (Mar–Aug) revenue drops to ~30% of peak. Based on current trajectory, <strong style="color:var(--white);">build a reserve of ₹1.2L</strong> by February to cover March–August operating costs. Monthly costs: CA ₹5K, Supabase Pro ₹3K, WhatsApp BSP ₹4K, domain ₹500 = ₹12.5K/month × 6 = ₹75K minimum.</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><div class="ch-left"><div class="card-icon ci-gold">📋</div><div><div class="card-title">TDS & Tax Tracker</div><div class="card-sub">Financial Year 2025–26</div></div></div></div>
+        <div class="card-body">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
+            <div style="background:var(--surface2);border-radius:10px;padding:12px;"><div style="font-size:0.68rem;color:var(--text3);">Total Platform GMV</div><div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--white);">₹18.4L</div></div>
+            <div style="background:var(--surface2);border-radius:10px;padding:12px;"><div style="font-size:0.68rem;color:var(--text3);">Commission Earned</div><div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--teal);">₹1.84L</div></div>
+            <div style="background:var(--surface2);border-radius:10px;padding:12px;"><div style="font-size:0.68rem;color:var(--text3);">TDS Deducted (194C)</div><div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--gold);">₹18,420</div></div>
+            <div style="background:var(--surface2);border-radius:10px;padding:12px;"><div style="font-size:0.68rem;color:var(--text3);">GST Paid</div><div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--green);">₹33,120</div></div>
+          </div>
+          <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.15);border-radius:10px;padding:12px;font-size:0.78rem;color:var(--text2);line-height:1.65;">
+            📌 <strong style="color:var(--amber);">CA Actions Due:</strong> GST filing by 20th each month. TDS Form 16A to artists quarterly. ITR due July 31. CA retainer: ₹5,000/month. Current CA status: <span style="color:var(--green);">Active ✓</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TECH PAGE ══ -->
+  <div class="page" id="page-tech">
+    <div class="alert-banner warn">
+      <div class="ab-icon">⚠️</div>
+      <div class="ab-text"><strong>Claude API Cost Warning:</strong> API spend this month is ₹3,420 — 14% above budget of ₹3,000. Review AI Style Matcher query volume. Consider caching frequent recommendations.</div>
+      <button class="ab-close" onclick="this.parentElement.style.display='none'">✕</button>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-label">Page Load Speed</div><div class="kpi-value green">1.8s</div><div class="kpi-change up">✓ Under 3s target</div></div>
+      <div class="kpi-card"><div class="kpi-label">API Uptime</div><div class="kpi-value teal">99.9%</div><div class="kpi-change">Supabase · Razorpay · WhatsApp</div></div>
+      <div class="kpi-card"><div class="kpi-label">Monthly API Spend</div><div class="kpi-value gold">₹3,420</div><div class="kpi-change down">↑ 14% over budget</div></div>
+      <div class="kpi-card"><div class="kpi-label">DB Backup Status</div><div class="kpi-value green">✓</div><div class="kpi-change">Last backup: 2hrs ago</div></div>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-head"><div class="ch-left"><div class="card-icon ci-amber">💸</div><div><div class="card-title">API Cost Breakdown</div><div class="card-sub">Monthly spend by service</div></div></div></div>
+        <div class="card-body">
+          <div class="api-cost-row"><div><div class="acr-label">🤖 Claude API (AI Style Matcher)</div><div class="acr-bar-wrap"><div class="acr-bar" style="width:70%;background:var(--rose);"></div></div></div><div class="acr-amount" style="color:var(--rose);">₹2,380</div></div>
+          <div class="api-cost-row"><div><div class="acr-label">📱 WhatsApp Business API</div><div class="acr-bar-wrap"><div class="acr-bar" style="width:28%;background:var(--green);"></div></div></div><div class="acr-amount">₹640</div></div>
+          <div class="api-cost-row"><div><div class="acr-label">🗄️ Supabase Pro (DB + Storage)</div><div class="acr-bar-wrap"><div class="acr-bar" style="width:12%;background:var(--teal);"></div></div></div><div class="acr-amount">₹280</div></div>
+          <div class="api-cost-row"><div><div class="acr-label">💳 Razorpay MDR (1.5% of GMV)</div><div class="acr-bar-wrap"><div class="acr-bar" style="width:18%;background:var(--gold);"></div></div></div><div class="acr-amount">₹120</div></div>
+          <div style="border-top:1px solid var(--border);padding-top:10px;margin-top:4px;display:flex;justify-content:space-between;font-size:0.82rem;">
+            <span style="color:var(--text2);font-weight:600;">Total Monthly Tech Cost</span>
+            <span style="color:var(--gold);font-weight:700;">₹3,420</span>
+          </div>
+          <div style="margin-top:10px;font-size:0.75rem;color:var(--text3);">Budget: ₹3,000 · <span style="color:var(--rose);">₹420 over</span> — cache frequent AI queries to reduce Claude API calls by ~30%</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><div class="ch-left"><div class="card-icon ci-teal">🔧</div><div><div class="card-title">System Status</div><div class="card-sub">All external dependencies</div></div></div></div>
+        <div class="card-body">
+          <table class="data-table">
+            <thead><tr><th>Service</th><th>Status</th><th>Uptime</th><th>Last Check</th></tr></thead>
+            <tbody>
+              <tr><td>Supabase DB</td><td><span class="status-pill sp-ok">✓ Operational</span></td><td>99.9%</td><td>2 min ago</td></tr>
+              <tr><td>Razorpay Payments</td><td><span class="status-pill sp-ok">✓ Operational</span></td><td>99.8%</td><td>2 min ago</td></tr>
+              <tr><td>Claude API</td><td><span class="status-pill sp-ok">✓ Operational</span></td><td>99.9%</td><td>5 min ago</td></tr>
+              <tr><td>WhatsApp BSP</td><td><span class="status-pill sp-ok">✓ Operational</span></td><td>99.7%</td><td>5 min ago</td></tr>
+              <tr><td>Netlify CDN</td><td><span class="status-pill sp-ok">✓ Operational</span></td><td>100%</td><td>1 min ago</td></tr>
+              <tr><td>Daily DB Backup</td><td><span class="status-pill sp-ok">✓ Completed</span></td><td>—</td><td>2 hrs ago</td></tr>
+              <tr><td>SSL Certificate</td><td><span class="status-pill sp-ok">✓ Valid</span></td><td>—</td><td>Expires Mar 2027</td></tr>
+              <tr><td>CDSCO Recall Feed</td><td><span class="status-pill sp-ok">✓ Active</span></td><td>—</td><td>Weekly scan done</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SAFETY PAGE ══ -->
+  <div class="page" id="page-safety">
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-label">SOS Activations</div><div class="kpi-value green">0</div><div class="kpi-change up">This month · All-time: 2</div></div>
+      <div class="kpi-card"><div class="kpi-label">Safety Incidents</div><div class="kpi-value green">0</div><div class="kpi-change">No harassment reports</div></div>
+      <div class="kpi-card"><div class="kpi-label">Bans Issued</div><div class="kpi-value rose">1</div><div class="kpi-change down">1 client — harassment</div></div>
+      <div class="kpi-card"><div class="kpi-label">Fake Profiles Caught</div><div class="kpi-value gold">0</div><div class="kpi-change">Aadhaar gate working</div></div>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-head"><div class="ch-left"><div class="card-icon ci-red">🛡️</div><div><div class="card-title">Incident Log</div><div class="card-sub">All safety events — last 90 days</div></div></div></div>
+        <div class="card-body">
+          <table class="data-table">
+            <thead><tr><th>Date</th><th>Type</th><th>Artist</th><th>Action Taken</th><th>Resolved</th></tr></thead>
+            <tbody>
+              <tr><td>Mar 15</td><td>Client harassment complaint</td><td>Priya Sharma</td><td>Client permanently banned. Artist compensated ₹500.</td><td><span class="status-pill sp-ok">✓ Resolved</span></td></tr>
+              <tr><td>Feb 28</td><td>SOS button activated (test)</td><td>Meera Singh</td><td>Founder called in 90 sec. False alarm — artist confirmed safe.</td><td><span class="status-pill sp-ok">✓ Resolved</span></td></tr>
+              <tr><td>Jan 12</td><td>Fake product concern</td><td>Ritu Verma</td><td>Product batch checked vs CDSCO database. No recall found.</td><td><span class="status-pill sp-ok">✓ Resolved</span></td></tr>
+            </tbody>
+          </table>
+          <div style="margin-top:14px;font-size:0.78rem;color:var(--text2);line-height:1.65;">
+            📋 Response Times: All SOS activations responded to within 2 minutes. All harassment incidents resolved within 24 hours. All safety incidents reported in this log with full documentation.<br/>
+            <span style="color:var(--green);">✓ DPDP compliance: All incident records retained securely for 7 years as required.</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><div class="ch-left"><div class="card-icon ci-teal">📋</div><div><div class="card-title">Pre-Launch Safety Checklist</div><div class="card-sub">18 critical items — Section 18 Audit</div></div></div></div>
+        <div class="card-body">
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="display:flex;gap:8px;font-size:0.78rem;"><span style="color:var(--green);">✅</span><span>SOS button in artist app with 2-min response</span></div>
+            <div style="display:flex;gap:8px;font-size:0.78rem;"><span style="color:var(--green);">✅</span><span>Police verification mandatory gate</span></div>
+            <div style="display:flex;gap:8px;font-size:0.78rem;"><span style="color:var(--green);">✅</span><span>Aadhaar OTP verification integrated</span></div>
+            <div style="display:flex;gap:8px;font-size:0.78rem;"><span style="color:var(--green);">✅</span><span>Hygiene certification quiz live</span></div>
+            <div style="display:flex;gap:8px;font-size:0.78rem;"><span style="color:var(--green);">✅</span><span>DPDP Act 2023 compliance confirmed</span></div>
+            <div style="display:flex;gap:8px;font-size:0.78rem;"><span style="color:var(--green);">✅</span><span>Anti-discrimination policy published</span></div>
+            <div style="display:flex;gap:8px;font-size:0.78rem;"><span style="color:var(--green);">✅</span><span>Child safety policy published</span></div>
+            <div style="display:flex;gap:8px;font-size:0.78rem;"><span style="color:var(--green);">✅</span><span>All 8 crisis response plans written</span></div>
+            <div style="display:flex;gap:8px;font-size:0.78rem;"><span style="color:var(--green);">✅</span><span>Supabase Pro daily backup confirmed</span></div>
+            <div style="display:flex;gap:8px;font-size:0.78rem;"><span style="color:var(--green);">✅</span><span>Grievance officer published (IT Rules 2021)</span></div>
+            <div style="display:flex;gap:8px;font-size:0.78rem;"><span style="color:var(--amber);">⏳</span><span style="color:var(--amber);">Cyber insurance — apply before 500 users</span></div>
+            <div style="display:flex;gap:8px;font-size:0.78rem;"><span style="color:var(--amber);">⏳</span><span style="color:var(--amber);">Emergency backup person briefed</span></div>
+            <div style="display:flex;gap:8px;font-size:0.78rem;"><span style="color:var(--rose);">❌</span><span style="color:var(--rose);">Public liability insurance — not yet placed</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ CITIES PAGE ══ -->
+  <div class="page" id="page-cities">
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-label">Active Cities</div><div class="kpi-value teal">1</div><div class="kpi-change">Delhi NCR · Next: Lucknow Month 5</div></div>
+      <div class="kpi-card"><div class="kpi-label">City Partners Signed</div><div class="kpi-value gold">0</div><div class="kpi-change down">Required before Tier-2 launch</div></div>
+      <div class="kpi-card"><div class="kpi-label">Tier-2 Readiness Score</div><div class="kpi-value rose">11/25</div><div class="kpi-change down">Need 18/25 to expand</div></div>
+      <div class="kpi-card"><div class="kpi-label">Delhi NCR Break-Even</div><div class="kpi-value green">Month 7</div><div class="kpi-change up">On track</div></div>
+    </div>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-head"><div class="ch-left"><div class="card-icon ci-teal">🗺️</div><div><div class="card-title">City Performance</div><div class="card-sub">Bookings and artist distribution</div></div></div></div>
+        <div class="card-body">
+          <div class="city-row"><div class="city-name">South Delhi</div><div class="city-bar-wrap"><div class="city-bar" style="width:100%;"></div></div><div class="city-count">52 bookings</div><span class="city-status" style="background:var(--green-soft);color:var(--green);">Active</span></div>
+          <div class="city-row"><div class="city-name">North Delhi</div><div class="city-bar-wrap"><div class="city-bar" style="width:25%;"></div></div><div class="city-count">13 bookings</div><span class="city-status" style="background:var(--teal-soft);color:var(--teal);">Growing</span></div>
+          <div class="city-row"><div class="city-name">Gurgaon</div><div class="city-bar-wrap"><div class="city-bar" style="width:17%;"></div></div><div class="city-count">9 bookings</div><span class="city-status" style="background:var(--teal-soft);color:var(--teal);">Growing</span></div>
+          <div class="city-row"><div class="city-name">Noida</div><div class="city-bar-wrap"><div class="city-bar" style="width:12%;"></div></div><div class="city-count">6 bookings</div><span class="city-status" style="background:var(--gold-soft);color:var(--gold);">Early</span></div>
+          <div class="city-row"><div class="city-name">Lucknow</div><div class="city-bar-wrap"><div class="city-bar" style="width:0%;"></div></div><div class="city-count">0 bookings</div><span class="city-status" style="background:var(--surface2);color:var(--text3);">Month 5</span></div>
+          <div class="city-row"><div class="city-name">Jaipur</div><div class="city-bar-wrap"><div class="city-bar" style="width:0%;"></div></div><div class="city-count">0 bookings</div><span class="city-status" style="background:var(--surface2);color:var(--text3);">Month 6</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><div class="ch-left"><div class="card-icon ci-purple">📋</div><div><div class="card-title">Tier-2 Expansion Readiness</div><div class="card-sub">Lucknow scoring — 18/25 required</div></div></div></div>
+        <div class="card-body">
+          <div class="health-meter"><div class="hm-top"><span class="hm-label">Urban Company strength (lower=better)</span><span class="hm-value" style="color:var(--green);">2/5 ✓</span></div><div class="hm-bar"><div class="hm-fill green" style="width:40%;"></div></div></div>
+          <div class="health-meter"><div class="hm-top"><span class="hm-label">Artist supply availability</span><span class="hm-value" style="color:var(--gold);">3/5</span></div><div class="hm-bar"><div class="hm-fill gold" style="width:60%;"></div></div></div>
+          <div class="health-meter"><div class="hm-top"><span class="hm-label">Wedding market volume</span><span class="hm-value" style="color:var(--green);">4/5 ✓</span></div><div class="hm-bar"><div class="hm-fill green" style="width:80%;"></div></div></div>
+          <div class="health-meter"><div class="hm-top"><span class="hm-label">Founder visit ease</span><span class="hm-value" style="color:var(--gold);">3/5</span></div><div class="hm-bar"><div class="hm-fill gold" style="width:60%;"></div></div></div>
+          <div class="health-meter"><div class="hm-top"><span class="hm-label">City partner identified</span><span class="hm-value" style="color:var(--rose);">0/5 ✗</span></div><div class="hm-bar"><div class="hm-fill rose" style="width:0%;"></div></div></div>
+          <div style="margin-top:12px;background:var(--surface2);border-radius:8px;padding:10px 12px;font-size:0.78rem;color:var(--text2);">
+            Current score: <strong style="color:var(--gold);">12/25</strong> — need <strong style="color:var(--white);">18/25</strong> before launching.<br/>
+            Critical blocker: <strong style="color:var(--rose);">City partner not yet identified.</strong> Find a Lucknow-based beauty professional this month.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ RISKS PAGE ══ -->
+  <div class="page" id="page-risks">
+    <div class="card">
+      <div class="card-head"><div class="ch-left"><div class="card-icon ci-rose">⚠️</div><div><div class="card-title">Risk Radar — Live Monitoring</div><div class="card-sub">All risks from Section 23 audit — current status</div></div></div></div>
+      <div class="card-body">
+        <div class="risk-row"><div class="risk-icon">🏛️</div><div class="risk-info"><div class="risk-title">Employment Misclassification</div><div class="risk-desc">Independent contractor agreements signed by all artists · Annual audit scheduled Jan 2027</div></div><span class="risk-level rl-low">MANAGED</span></div>
+        <div class="risk-row"><div class="risk-icon">📊</div><div class="risk-info"><div class="risk-title">Seasonal Cash Flow Crisis</div><div class="risk-desc">Mar–Aug revenue ~30% of peak. Reserve target: ₹1.2L by February. Current reserve: ₹0.4L</div></div><span class="risk-level rl-high">HIGH — ACT</span></div>
+        <div class="risk-row"><div class="risk-icon">💰</div><div class="risk-info"><div class="risk-title">Urban Company Price War</div><div class="risk-desc">UC commission unchanged at 25-35%. Community moat building in progress. 3-month reserve building.</div></div><span class="risk-level rl-monitor">MONITOR</span></div>
+        <div class="risk-row"><div class="risk-icon">📱</div><div class="risk-info"><div class="risk-title">Viral Negative Incident</div><div class="risk-desc">All 8 crisis response plans written. Emergency replacement protocol tested. Level 3 statement ready.</div></div><span class="risk-level rl-low">PREPARED</span></div>
+        <div class="risk-row"><div class="risk-icon">🔒</div><div class="risk-info"><div class="risk-title">Data Breach (DPDP Act)</div><div class="risk-desc">Supabase Pro + RLS enabled. Breach protocol written. Cyber insurance — NOT YET PLACED.</div></div><span class="risk-level rl-med">PARTIAL</span></div>
+        <div class="risk-row"><div class="risk-icon">👤</div><div class="risk-info"><div class="risk-title">Founder Health Emergency</div><div class="risk-desc">Emergency backup person NOT YET IDENTIFIED. Action required this week.</div></div><span class="risk-level rl-high">HIGH — ACT</span></div>
+        <div class="risk-row"><div class="risk-icon">💳</div><div class="risk-info"><div class="risk-title">Payment Gateway Failure</div><div class="risk-desc">Backup gateway (PayU) not yet integrated. Primary: Razorpay. Peak date manual confirm protocol ready.</div></div><span class="risk-level rl-med">PARTIAL</span></div>
+        <div class="risk-row"><div class="risk-icon">📲</div><div class="risk-info"><div class="risk-title">WhatsApp Account Ban Risk</div><div class="risk-desc">Opt-in records maintained. Email backup active. Block rate monitoring active. BSP escalation path confirmed.</div></div><span class="risk-level rl-low">MANAGED</span></div>
+        <div class="risk-row"><div class="risk-icon">🏢</div><div class="risk-info"><div class="risk-title">Gig Worker Law Change</div><div class="risk-desc">Code on Social Security 2020 monitoring. Last checked: March 2026. Next check: June 2026.</div></div><span class="risk-level rl-monitor">MONITOR</span></div>
+        <div class="risk-row"><div class="risk-icon">🛡️</div><div class="risk-info"><div class="risk-title">Insurance Lapse</div><div class="risk-desc">Cyber insurance: NOT PLACED. Public liability: NOT PLACED. Action required before 500 users.</div></div><span class="risk-level rl-high">HIGH — ACT</span></div>
+      </div>
+    </div>
+    <div style="background:var(--rose-soft);border:1px solid rgba(244,63,94,0.2);border-radius:14px;padding:18px;">
+      <div style="font-size:0.82rem;font-weight:700;color:var(--rose);margin-bottom:10px;">🚨 3 Actions Required This Week</div>
+      <div style="display:flex;flex-direction:column;gap:8px;font-size:0.8rem;color:var(--text2);">
+        <div>1. <strong style="color:var(--white);">Identify emergency backup person</strong> — brief them and give platform access. Risk: founder health emergency leaves platform unmanned.</div>
+        <div>2. <strong style="color:var(--white);">Place cyber insurance and public liability insurance</strong> — before 500 users. Contact: Digit Insurance or HDFC Ergo online.</div>
+        <div>3. <strong style="color:var(--white);">Build reserve to ₹1.2L by February</strong> — save 25% of October–February peak revenue. Currently ₹0.8L short.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+<div class="toast" id="toast"></div>
+
+<script>
+const pageTitles={overview:'Platform Overview',bookings:'All Bookings',artists:'Artist Management',finance:'Finance & TDS',tech:'Tech & API Health',safety:'Safety & Incidents',cities:'City Performance',risks:'Risk Radar'};
+
+function switchPage(id,el){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.sb-item').forEach(i=>i.classList.remove('active'));
+  const page=document.getElementById('page-'+id);
+  if(page)page.classList.add('active');
+  if(el)el.classList.add('active');
+  document.getElementById('page-title').textContent=pageTitles[id]||id;
+  if(id==='finance')renderRevenueChart();
+  if(id==='overview')renderCategoryChart();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function simulateRefresh(){
+  showToast('ok','✓ Dashboard refreshed — all data current');
+}
+
+// Sparklines
+function renderSparkline(id,data,cls){
+  const el=document.getElementById(id);
+  if(!el)return;
+  const max=Math.max(...data);
+  el.innerHTML=data.map((v,i)=>{
+    const h=Math.round((v/max)*24)+4;
+    const isCurrent=i===data.length-1;
+    return `<div class="spark-bar ${isCurrent?cls:''}" style="height:${h}px;"></div>`;
+  }).join('');
+}
+renderSparkline('spark1',[18,22,15,28,19,24,31,27,22,25,28,30],'teal');
+renderSparkline('spark2',[62,71,58,89,68,78,91,84,72,82,91,94],'gold');
+renderSparkline('spark3',[80,88,95,102,108,112,118,121,124,126,128,127],'green');
+renderSparkline('spark4',[1820,2240,1580,2860,1920,2480,3120,2740,2210,2560,2840,2840],'rose');
+
+// Revenue chart
+function renderRevenueChart(){
+  const data=[18200,22400,15800,28600,19200,24800,31200,27400,22100,25600,28400,0];
+  const months=['Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar'];
+  const max=Math.max(...data.filter(d=>d>0))||1;
+  const el=document.getElementById('revenueChart');
+  if(!el)return;
+  el.innerHTML=data.map((v,i)=>{
+    const h=v>0?Math.round((v/max)*70)+6:4;
+    const isCurrent=i===10;
+    return `<div class="bc-item">
+      <div class="bc-val">${v>0?'₹'+(v/1000).toFixed(0)+'K':''}</div>
+      <div class="bc-bar${isCurrent?' gold':''}" style="height:${h}px;"></div>
+      <div class="bc-label">${months[i]}</div>
+    </div>`;
+  }).join('');
+}
+
+// Category chart
+function renderCategoryChart(){
+  const data=[{l:'Bridal',v:16200,c:'var(--teal)'},{l:'Party',v:6800,c:'var(--gold)'},{l:'Groom',v:2400,c:'var(--green)'},{l:'Specialist',v:1800,c:'var(--purple)'},{l:'Corp',v:900,c:'var(--blue)'},{l:'Edit',v:300,c:'var(--rose)'}];
+  const max=data[0].v;
+  const el=document.getElementById('categoryChart');
+  if(!el)return;
+  el.innerHTML=`<div style="display:flex;align-items:flex-end;gap:8px;height:70px;">`+
+    data.map(d=>{
+      const h=Math.round((d.v/max)*60)+4;
+      return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;">
+        <div style="font-size:0.6rem;color:var(--text3);">₹${(d.v/1000).toFixed(1)}K</div>
+        <div style="width:100%;height:${h}px;background:${d.c};border-radius:3px 3px 0 0;"></div>
+        <div style="font-size:0.6rem;color:var(--text3);">${d.l}</div>
+      </div>`;
+    }).join('')+'</div>';
+}
+
+function showToast(type,msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.className='toast show '+type;
+  setTimeout(()=>t.classList.remove('show'),3500);
+}
+
+// Init
+document.addEventListener('DOMContentLoaded',()=>{
+  renderCategoryChart();
+  renderRevenueChart();
+  setTimeout(()=>showToast('ok','✓ Dashboard loaded — all systems operational'),500);
+});
+</script>
+</body>
+</html>

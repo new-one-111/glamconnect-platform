@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Inclusive Beauty Specialists — GlamConnect | Vitiligo · Scars · Oncology · Menopause</title>
+<meta name="description" content="India's only platform with certified specialists for vitiligo, burn scars, chemotherapy, menopause skin and adaptive beauty services. 30M+ Indians served with dignity."/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --rose:#C9184A;--rose-light:#FF4D6D;--rose-soft:rgba(201,24,74,0.07);
+  --gold:#D4A843;--gold-light:#F5D68A;
+  --cream:#FFF8F0;--dark:#1A0A12;--dark2:#2D1B22;
+  --mid:#6B3F4E;--text:#3D1F2B;--muted:#9B7280;
+  --white:#FFFFFF;--card:#FFFBF8;--border:rgba(201,24,74,0.10);
+  --green:#16A34A;--green-bg:#F0FDF4;
+  --blue:#1D4ED8;--blue-bg:#EFF6FF;
+  --purple:#7C3AED;--purple-bg:#F5F3FF;--purple-soft:rgba(124,58,237,0.08);
+  --teal:#0D9488;--teal-bg:rgba(13,148,136,0.08);
+  --amber:#B45309;--amber-bg:#FFFBEB;
+  --shadow:0 4px 24px rgba(26,10,18,0.07);
+  --shadow-lg:0 16px 48px rgba(26,10,18,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;}
+body.hindi-mode .en{display:none!important;}
+body.hindi-mode .hi{display:inline!important;}
+body:not(.hindi-mode) .hi{display:none!important;}
+
+/* NAV */
+nav{background:rgba(255,248,240,0.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--dark);text-decoration:none;}
+.logo span{color:var(--rose);}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.lang-toggle{display:flex;background:rgba(201,24,74,0.06);border-radius:50px;padding:3px;gap:2px;}
+.lang-btn{border:none;background:none;padding:4px 12px;border-radius:50px;font-size:0.75rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;color:var(--muted);transition:all 0.2s;}
+.lang-btn.active{background:var(--rose);color:white;}
+.btn-back{border:1.5px solid var(--border);background:none;color:var(--mid);padding:7px 16px;border-radius:50px;font-size:0.82rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.btn-back:hover{border-color:var(--rose);color:var(--rose);}
+.btn-book{background:var(--purple);color:white;border:none;padding:8px 20px;border-radius:50px;font-size:0.85rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.btn-book:hover{opacity:0.9;transform:translateY(-1px);}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--dark) 0%,#1A0A2E 50%,#1A1A0A 100%);padding:72px 5% 60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 40%,rgba(124,58,237,0.2) 0%,transparent 55%),radial-gradient(ellipse at 15% 80%,rgba(201,24,74,0.15) 0%,transparent 50%);}
+.hero-inner{position:relative;z-index:1;max-width:700px;}
+.first-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.2);border:1px solid rgba(124,58,237,0.4);padding:6px 16px;border-radius:50px;margin-bottom:20px;}
+.first-pill span{font-size:0.78rem;color:rgba(167,139,250,0.9);font-weight:700;letter-spacing:0.05em;text-transform:uppercase;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.5vw,3.4rem);font-weight:700;line-height:1.12;color:white;margin-bottom:14px;}
+.hero h1 em{color:rgba(167,139,250,0.9);font-style:italic;}
+.hero p{font-size:0.97rem;color:rgba(255,255,255,0.58);line-height:1.72;margin-bottom:28px;max-width:540px;}
+.trust-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;}
+.t-pill{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);padding:5px 12px;border-radius:50px;font-size:0.76rem;color:rgba(255,255,255,0.78);}
+.t-pill.purple{background:rgba(124,58,237,0.15);border-color:rgba(124,58,237,0.4);color:rgba(167,139,250,0.9);}
+.t-pill.rose{background:rgba(201,24,74,0.12);border-color:rgba(201,24,74,0.35);color:rgba(251,113,133,0.9);}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;}
+.cta-primary{background:var(--purple);color:white;border:none;padding:14px 28px;border-radius:50px;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.cta-primary:hover{opacity:0.9;transform:translateY(-1px);}
+.cta-secondary{background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.2);color:white;padding:13px 24px;border-radius:50px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.cta-secondary:hover{background:rgba(255,255,255,0.14);}
+.hero-stat-row{display:flex;gap:28px;flex-wrap:wrap;margin-top:32px;}
+.hs-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:rgba(167,139,250,0.9);line-height:1;}
+.hs-label{font-size:0.72rem;color:rgba(255,255,255,0.4);margin-top:3px;}
+
+/* NAV TABS */
+.category-tabs{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:64px;z-index:90;overflow-x:auto;}
+.tabs-inner{max-width:1200px;margin:0 auto;display:flex;padding:0 5%;}
+.tab-btn{padding:14px 20px;font-size:0.85rem;font-weight:600;color:var(--muted);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
+.tab-btn:hover{color:var(--purple);}
+.tab-btn.active{color:var(--purple);border-bottom-color:var(--purple);}
+
+/* MAIN */
+main{max-width:1200px;margin:0 auto;padding:48px 5% 80px;}
+
+/* SECTIONS */
+.spec-section{margin-bottom:64px;scroll-margin-top:130px;}
+.spec-header{display:flex;gap:20px;align-items:flex-start;margin-bottom:28px;padding:28px;background:var(--white);border:1px solid var(--border);border-radius:20px;border-left:5px solid var(--purple);}
+.spec-header.vitiligo{border-left-color:#22C55E;}
+.spec-header.scar{border-left-color:#F97316;}
+.spec-header.chemo{border-left-color:#EC4899;}
+.spec-header.menopause{border-left-color:#EAB308;}
+.spec-header.psoriasis{border-left-color:#06B6D4;}
+.spec-header.adaptive{border-left-color:#8B5CF6;}
+.spec-header.lgbtq{border-left-color:#F43F5E;}
+.spec-header.alopecia{border-left-color:#0EA5E9;}
+.spec-icon-big{font-size:2.8rem;flex-shrink:0;}
+.spec-eyebrow{font-size:0.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;}
+.spec-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--dark);margin-bottom:6px;line-height:1.2;}
+.spec-desc{font-size:0.9rem;color:var(--mid);line-height:1.72;}
+.spec-stats{display:flex;gap:20px;margin-top:12px;flex-wrap:wrap;}
+.spec-stat{font-size:0.8rem;color:var(--muted);display:flex;align-items:center;gap:5px;}
+.spec-stat strong{color:var(--text);font-weight:700;}
+
+/* WHAT WE DO CARDS */
+.what-we-do{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-bottom:24px;}
+.wwd-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;}
+.wwd-icon{font-size:1.4rem;margin-bottom:8px;}
+.wwd-title{font-size:0.85rem;font-weight:700;color:var(--dark);margin-bottom:4px;}
+.wwd-desc{font-size:0.78rem;color:var(--muted);line-height:1.6;}
+
+/* ARTIST CARDS */
+.artists-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-bottom:20px;}
+.artist-card{background:var(--white);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:all 0.25s;cursor:pointer;}
+.artist-card:hover{border-color:var(--purple);box-shadow:var(--shadow-lg);transform:translateY(-3px);}
+.artist-img{height:180px;overflow:hidden;position:relative;}
+.artist-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s;}
+.artist-card:hover .artist-img img{transform:scale(1.04);}
+.spec-badge{position:absolute;top:10px;left:10px;font-size:0.65rem;font-weight:700;padding:3px 10px;border-radius:50px;backdrop-filter:blur(6px);}
+.sb-vitiligo{background:rgba(34,197,94,0.85);color:white;}
+.sb-scar{background:rgba(249,115,22,0.85);color:white;}
+.sb-chemo{background:rgba(236,72,153,0.85);color:white;}
+.sb-menopause{background:rgba(234,179,8,0.85);color:white;}
+.sb-general{background:rgba(124,58,237,0.85);color:white;}
+.vb-row{position:absolute;bottom:10px;left:10px;display:flex;gap:5px;}
+.vbadge{font-size:0.62rem;font-weight:700;padding:2px 7px;border-radius:50px;backdrop-filter:blur(6px);}
+.vbadge.green{background:rgba(22,163,74,0.85);color:white;}
+.vbadge.blue{background:rgba(29,78,216,0.85);color:white;}
+.a-body{padding:14px 16px;}
+.a-name{font-family:'Cormorant Garamond',serif;font-size:1.08rem;font-weight:700;color:var(--dark);}
+.a-loc{font-size:0.73rem;color:var(--muted);margin-top:2px;margin-bottom:8px;}
+.a-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;}
+.a-tag{font-size:0.68rem;font-weight:500;padding:2px 8px;border-radius:50px;background:var(--purple-soft);color:var(--purple);}
+.a-footer{display:flex;align-items:center;justify-content:space-between;}
+.a-price{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--dark);}
+.a-rating{font-size:0.8rem;font-weight:600;color:var(--dark);}
+.a-book{background:var(--purple);color:white;border:none;padding:7px 14px;border-radius:50px;font-size:0.75rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.a-book:hover{opacity:0.9;}
+
+/* GUIDE BOX */
+.guide-box{background:linear-gradient(135deg,var(--purple-bg),rgba(124,58,237,0.03));border:1px solid rgba(124,58,237,0.12);border-radius:16px;padding:22px;margin-bottom:20px;}
+.guide-title{font-size:0.82rem;font-weight:700;color:var(--purple);margin-bottom:12px;display:flex;align-items:center;gap:6px;}
+.guide-steps{display:flex;flex-direction:column;gap:8px;}
+.guide-step{display:flex;align-items:flex-start;gap:10px;font-size:0.84rem;color:var(--text);line-height:1.6;}
+.guide-step-num{width:22px;height:22px;border-radius:50%;background:var(--purple);color:white;font-size:0.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+
+/* AWARENESS BOX */
+.awareness-box{background:var(--cream);border:1px solid var(--border);border-radius:14px;padding:18px;margin-top:16px;}
+.awareness-box.vitiligo{border-left:4px solid #22C55E;background:rgba(34,197,94,0.03);}
+.awareness-box.scar{border-left:4px solid #F97316;background:rgba(249,115,22,0.03);}
+.awareness-box.chemo{border-left:4px solid #EC4899;background:rgba(236,72,153,0.03);}
+.awareness-box.menopause{border-left:4px solid #EAB308;background:rgba(234,179,8,0.03);}
+.awareness-title{font-size:0.8rem;font-weight:700;color:var(--text);margin-bottom:6px;}
+.awareness-text{font-size:0.8rem;color:var(--muted);line-height:1.7;}
+
+/* DIGNITY SECTION */
+.dignity-section{background:linear-gradient(135deg,var(--dark) 0%,#1A0A2E 100%);border-radius:24px;padding:44px;color:white;margin-bottom:48px;text-align:center;}
+.dignity-section h2{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;margin-bottom:10px;}
+.dignity-section p{font-size:0.92rem;color:rgba(255,255,255,0.55);line-height:1.75;max-width:580px;margin:0 auto 28px;}
+.dignity-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;}
+.dignity-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:18px;text-align:center;}
+.dignity-icon{font-size:1.8rem;margin-bottom:10px;}
+.dignity-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:rgba(167,139,250,0.9);margin-bottom:4px;}
+.dignity-label{font-size:0.75rem;color:rgba(255,255,255,0.45);line-height:1.5;}
+
+/* BOOKING MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(26,10,18,0.6);backdrop-filter:blur(4px);z-index:500;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.25s;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal-box{background:var(--white);border-radius:20px;padding:28px;max-width:460px;width:90%;max-height:88vh;overflow-y:auto;}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;color:var(--dark);}
+.modal-close{background:none;border:none;font-size:1.2rem;color:var(--muted);cursor:pointer;}
+.mb-label{font-size:0.72rem;font-weight:700;color:var(--mid);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:5px;display:block;margin-top:12px;}
+.mb-input,.mb-select,.mb-textarea{width:100%;padding:10px 13px;border-radius:10px;border:1.5px solid var(--border);background:var(--cream);font-size:0.88rem;font-family:'DM Sans',sans-serif;color:var(--text);outline:none;transition:border-color 0.2s;}
+.mb-input:focus,.mb-select:focus,.mb-textarea:focus{border-color:var(--purple);}
+.mb-textarea{resize:vertical;min-height:64px;}
+.price-breakdown{background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);border-radius:12px;padding:14px;margin:12px 0;}
+.pb-row{display:flex;justify-content:space-between;font-size:0.83rem;color:var(--mid);padding:3px 0;}
+.pb-row.total{font-weight:700;color:var(--dark);font-size:0.93rem;border-top:1px solid rgba(124,58,237,0.12);padding-top:8px;margin-top:4px;}
+.pb-row.dep{color:var(--purple);font-weight:700;margin-top:4px;}
+.upi-nudge{background:var(--green-bg);border:1px solid rgba(22,163,74,0.15);border-radius:8px;padding:7px 12px;font-size:0.75rem;color:var(--green);margin:6px 0;display:flex;align-items:center;gap:5px;}
+.consent-row{display:flex;align-items:flex-start;gap:8px;font-size:0.75rem;color:var(--muted);line-height:1.55;margin-top:10px;}
+.consent-row input{accent-color:var(--purple);flex-shrink:0;margin-top:2px;}
+.consent-row a{color:var(--purple);text-decoration:none;}
+.mb-submit{width:100%;background:var(--purple);color:white;border:none;padding:13px;border-radius:50px;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:10px;transition:all 0.2s;}
+.mb-submit:hover{opacity:0.9;}
+
+/* Footer */
+footer{background:var(--dark);color:rgba(255,255,255,0.45);text-align:center;padding:24px;font-size:0.8rem;}
+footer a{color:rgba(201,24,74,0.7);text-decoration:none;}
+
+@media(max-width:600px){
+  .what-we-do{grid-template-columns:1fr 1fr;}
+  .dignity-grid{grid-template-columns:1fr 1fr;}
+  .hero-cta{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="glamconnect-homepage-v2.html">Glam<span>Connect</span></a>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="en-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="hi-btn" onclick="setLang('hi')">हिं</button>
+    </div>
+    <button class="btn-back" onclick="window.location.href='glamconnect-homepage-v2.html'">
+      <span class="en">← Home</span><span class="hi">← होम</span>
+    </button>
+    <button class="btn-book" onclick="openModal(null)">
+      <span class="en">Book a Specialist →</span>
+      <span class="hi">स्पेशलिस्ट बुक करें →</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="first-pill">
+      <span class="en">🌿 India's Only Platform — Specialist-Certified Beauty for Every Skin</span>
+      <span class="hi">🌿 भारत का एकमात्र प्लेटफॉर्म — हर स्किन के लिए स्पेशलिस्ट ब्यूटी</span>
+    </div>
+    <h1 class="en">Every person deserves<br/>to feel <em>beautiful.</em></h1>
+    <h1 class="hi" style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.5vw,3.4rem);font-weight:700;line-height:1.12;color:white;margin-bottom:14px;">हर इंसान <em style="color:rgba(167,139,250,0.9);">खूबसूरत</em><br/>महसूस करने का हकदार है।</h1>
+    <div class="trust-pills">
+      <div class="t-pill purple">🌿 Vitiligo Specialists</div>
+      <div class="t-pill purple">💜 Scar & Burn Specialists</div>
+      <div class="t-pill rose">🩷 Oncology Aesthetics</div>
+      <div class="t-pill rose">🌸 Menopause Skin</div>
+      <div class="t-pill">♿ Adaptive Services</div>
+      <div class="t-pill">🌈 LGBTQ+ Inclusive</div>
+    </div>
+    <p class="en">India has 30 million people living with vitiligo. Millions of burn survivors. Cancer patients in chemotherapy. Women experiencing menopause skin changes. Every single person in these groups has been ignored by every other beauty platform — until now. GlamConnect is the only platform in India with certified specialists trained specifically for their needs.</p>
+    <p class="hi">भारत में 3 करोड़ विटिलिगो पीड़ित हैं। लाखों बर्न सर्वाइवर। कीमो पर कैंसर रोगी। मेनोपॉज से गुजरती महिलाएं। GlamConnect भारत का एकमात्र प्लेटफॉर्म है जिनके पास इनके लिए प्रशिक्षित सर्टिफाइड स्पेशलिस्ट हैं।</p>
+    <div class="hero-cta">
+      <button class="cta-primary" onclick="document.getElementById('vitiligo').scrollIntoView({behavior:'smooth'})">
+        <span class="en">Find Your Specialist →</span><span class="hi">अपना स्पेशलिस्ट खोजें →</span>
+      </button>
+      <button class="cta-secondary" onclick="openModal(null)">
+        <span class="en">Book a Consultation</span><span class="hi">परामर्श बुक करें</span>
+      </button>
+    </div>
+    <div class="hero-stat-row">
+      <div><div class="hs-num">30M+</div><div class="hs-label en">Indians with vitiligo alone</div></div>
+      <div><div class="hs-num">0</div><div class="hs-label en">Other platforms serving them</div></div>
+      <div><div class="hs-num">8</div><div class="hs-label en">Specialist categories</div></div>
+      <div><div class="hs-num">10%</div><div class="hs-label en">Commission — always</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY TABS -->
+<div class="category-tabs">
+  <div class="tabs-inner">
+    <button class="tab-btn active" onclick="scrollTo('vitiligo',this)">🌿 Vitiligo</button>
+    <button class="tab-btn" onclick="scrollTo('scar',this)">💜 Burn & Scars</button>
+    <button class="tab-btn" onclick="scrollTo('chemo',this)">🩷 Oncology</button>
+    <button class="tab-btn" onclick="scrollTo('menopause',this)">🌸 Menopause</button>
+    <button class="tab-btn" onclick="scrollTo('psoriasis',this)">💙 Psoriasis</button>
+    <button class="tab-btn" onclick="scrollTo('adaptive',this)">♿ Adaptive</button>
+    <button class="tab-btn" onclick="scrollTo('lgbtq',this)">🌈 LGBTQ+</button>
+    <button class="tab-btn" onclick="scrollTo('alopecia',this)">🧔 Alopecia</button>
+  </div>
+</div>
+
+<main>
+
+  <!-- ══ VITILIGO ══ -->
+  <div class="spec-section" id="vitiligo">
+    <div class="spec-header vitiligo">
+      <div class="spec-icon-big">🌿</div>
+      <div>
+        <div class="spec-eyebrow en">Specialist Category</div>
+        <div class="spec-title en">Vitiligo Coverage Specialists</div>
+        <div class="spec-title hi" style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--dark);margin-bottom:6px;line-height:1.2;">विटिलिगो कवरेज स्पेशलिस्ट</div>
+        <div class="spec-desc en">Certified artists trained in colour-matching, full-coverage foundations, and techniques specifically designed to even skin tone for vitiligo clients — without heavy or cakey finish. Bridal, party, and everyday coverage available.</div>
+        <div class="spec-desc hi">सर्टिफाइड आर्टिस्ट जो विटिलिगो क्लाइंट्स के लिए कलर-मैचिंग और फुल-कवरेज तकनीकों में प्रशिक्षित हैं।</div>
+        <div class="spec-stats">
+          <div class="spec-stat"><strong>30M+</strong> <span class="en">Indians with vitiligo</span></div>
+          <div class="spec-stat"><strong>0</strong> <span class="en">Other platforms with this category</span></div>
+          <div class="spec-stat"><strong>Dermablend & Vichy</strong> <span class="en">Preferred cover products</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="what-we-do">
+      <div class="wwd-card"><div class="wwd-icon">🎨</div><div class="wwd-title en">Colour-Matched Coverage</div><div class="wwd-desc en">Precise skin tone matching across pigmentation boundaries. Colour theory training specific to vitiligo patterns.</div></div>
+      <div class="wwd-card"><div class="wwd-icon">✨</div><div class="wwd-title en">Natural-Finish Blending</div><div class="wwd-desc en">Full coverage without heavy or unnatural appearance. HD photography-safe finish.</div></div>
+      <div class="wwd-card"><div class="wwd-icon">💍</div><div class="wwd-title en">Bridal Vitiligo Specialist</div><div class="wwd-desc en">Your wedding day, handled with absolute care. Complete bridal look coordination including patch coverage.</div></div>
+      <div class="wwd-card"><div class="wwd-icon">🕑</div><div class="wwd-title en">Long-Wear Formulas</div><div class="wwd-desc en">Products that stay for 12–16 hours. No touch-up required for ceremony or reception.</div></div>
+    </div>
+    <div class="awareness-box vitiligo">
+      <div class="awareness-title en">🌿 About Vitiligo</div>
+      <div class="awareness-text en">Vitiligo is a skin condition caused by the loss of pigment-producing cells (melanocytes). It is not contagious, not caused by diet or lifestyle, and affects all skin tones. The condition is covered under the Rights of Persons with Disabilities Act 2016 in India. GlamConnect artists are trained in cultural sensitivity and never make assumptions about causes or treatments.</div>
+    </div>
+    <div class="artists-row" style="margin-top:20px;">
+      <div class="artist-card" onclick="openModal('Vitiligo Coverage')">
+        <div class="artist-img">
+          <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=240&fit=crop" alt="Nisha"/>
+          <span class="spec-badge sb-vitiligo">🌿 Vitiligo Specialist</span>
+          <div class="vb-row"><span class="vbadge green">✓ Aadhaar</span><span class="vbadge blue">🛡️ Police</span></div>
+        </div>
+        <div class="a-body">
+          <div class="a-name">Nisha Kapoor</div>
+          <div class="a-loc">📍 Vasant Kunj · 1.5km · 7 years</div>
+          <div class="a-tags"><span class="a-tag">Vitiligo Coverage</span><span class="a-tag">Bridal</span><span class="a-tag">Long-Wear</span></div>
+          <div class="a-footer"><div class="a-price">₹2,800</div><div class="a-rating">⭐ 4.9 (93)</div><button class="a-book">Book →</button></div>
+        </div>
+      </div>
+      <div class="artist-card" onclick="openModal('Vitiligo Coverage')">
+        <div class="artist-img">
+          <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=240&fit=crop" alt="Pooja"/>
+          <span class="spec-badge sb-vitiligo">🌿 Vitiligo Specialist</span>
+          <div class="vb-row"><span class="vbadge green">✓ Aadhaar</span><span class="vbadge blue">🛡️ Police</span></div>
+        </div>
+        <div class="a-body">
+          <div class="a-name">Pooja Sharma</div>
+          <div class="a-loc">📍 South Delhi · 2.1km · 9 years</div>
+          <div class="a-tags"><span class="a-tag">Vitiligo</span><span class="a-tag">Colour Theory</span><span class="a-tag">HD Photography</span></div>
+          <div class="a-footer"><div class="a-price">₹3,200</div><div class="a-rating">⭐ 5.0 (61)</div><button class="a-book">Book →</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ BURN & SCAR ══ -->
+  <div class="spec-section" id="scar">
+    <div class="spec-header scar">
+      <div class="spec-icon-big">💜</div>
+      <div>
+        <div class="spec-eyebrow en">Specialist Category</div>
+        <div class="spec-title en">Burn & Scar Coverage Specialists</div>
+        <div class="spec-title hi" style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--dark);margin-bottom:6px;line-height:1.2;">बर्न और स्कार कवरेज स्पेशलिस्ट</div>
+        <div class="spec-desc en">Specialists trained in camouflage techniques for burn scars, accident scars, and surgical scars. Gentle application methods that do not irritate healing or sensitive scar tissue. Trained to work with hypertrophic, keloid, and atrophic scars.</div>
+        <div class="spec-desc hi">बर्न स्कार, दुर्घटना स्कार, और सर्जिकल स्कार के लिए कैमोफ्लेज तकनीकों में प्रशिक्षित स्पेशलिस्ट।</div>
+        <div class="spec-stats">
+          <div class="spec-stat"><strong>Gentle</strong> <span class="en">application on sensitive tissue</span></div>
+          <div class="spec-stat"><strong>Medical-grade</strong> <span class="en">camouflage products available</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="what-we-do">
+      <div class="wwd-card"><div class="wwd-icon">🧴</div><div class="wwd-title en">Medical Camouflage</div><div class="wwd-desc en">Medical-grade camouflage products (Dermacolor, Veil Cover Cream) for complete coverage of burn and accident scars.</div></div>
+      <div class="wwd-card"><div class="wwd-icon">🤲</div><div class="wwd-title en">Gentle Application</div><div class="wwd-desc en">Feather-light touch techniques safe for hypertrophic, keloid, and post-surgical scar tissue.</div></div>
+      <div class="wwd-card"><div class="wwd-icon">💧</div><div class="wwd-title en">Skin-Safe Products</div><div class="wwd-desc en">Fragrance-free, hypoallergenic formulas specifically chosen for healing and sensitive skin.</div></div>
+      <div class="wwd-card"><div class="wwd-icon">📸</div><div class="wwd-title en">Photography Tested</div><div class="wwd-desc en">Coverage that holds under flash photography — tested for weddings and special occasions.</div></div>
+    </div>
+    <div class="awareness-box scar">
+      <div class="awareness-title en">💜 Working With Scar Tissue</div>
+      <div class="awareness-text en">Our artists are trained to never probe, ask about, or comment on how scars were acquired. The client's history is her own. The only purpose of the consultation is to understand the skin's current texture and sensitivity to select the right products and technique. All client information shared is treated as sensitive health data under DPDP Act 2023.</div>
+    </div>
+    <div class="artists-row" style="margin-top:20px;">
+      <div class="artist-card" onclick="openModal('Scar Coverage')">
+        <div class="artist-img">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=240&fit=crop" alt="Ritu"/>
+          <span class="spec-badge sb-scar">💜 Scar Specialist</span>
+          <div class="vb-row"><span class="vbadge green">✓ Aadhaar</span><span class="vbadge blue">🛡️ Police</span></div>
+        </div>
+        <div class="a-body">
+          <div class="a-name">Ritu Verma</div>
+          <div class="a-loc">📍 Green Park · 0.9km · 8 years</div>
+          <div class="a-tags"><span class="a-tag">Burn Scar</span><span class="a-tag">Medical Camouflage</span><span class="a-tag">Keloid Safe</span></div>
+          <div class="a-footer"><div class="a-price">₹3,000</div><div class="a-rating">⭐ 4.9 (74)</div><button class="a-book">Book →</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ONCOLOGY ══ -->
+  <div class="spec-section" id="chemo">
+    <div class="spec-header chemo">
+      <div class="spec-icon-big">🩷</div>
+      <div>
+        <div class="spec-eyebrow en">Specialist Category</div>
+        <div class="spec-title en">Oncology Aesthetics Specialists</div>
+        <div class="spec-title hi" style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--dark);margin-bottom:6px;line-height:1.2;">ऑन्कोलॉजी एस्थेटिक्स स्पेशलिस्ट</div>
+        <div class="spec-desc en">Trained artists who understand the specific skin challenges of chemotherapy and radiation — including increased sensitivity, dryness, pigmentation changes, and lash and brow loss. Gentle, healing-friendly formulas. Serving patients who deserve to feel beautiful through treatment.</div>
+        <div class="spec-desc hi">कीमोथेरेपी और रेडिएशन की विशिष्ट स्किन चुनौतियों को समझने वाले प्रशिक्षित आर्टिस्ट।</div>
+      </div>
+    </div>
+    <div class="what-we-do">
+      <div class="wwd-card"><div class="wwd-icon">🌸</div><div class="wwd-title en">Chemo-Safe Products</div><div class="wwd-desc en">Only fragrance-free, hypoallergenic, non-comedogenic products. No parabens, no alcohol, nothing that aggravates sensitive chemo skin.</div></div>
+      <div class="wwd-card"><div class="wwd-icon">✏️</div><div class="wwd-title en">Brow & Lash Restoration</div><div class="wwd-desc en">Microblading-style brow drawing and lash-line enhancement techniques for clients experiencing hair loss from treatment.</div></div>
+      <div class="wwd-card"><div class="wwd-icon">💆</div><div class="wwd-title en">Gentle Touch Techniques</div><div class="wwd-desc en">Light-touch application methods safe for heightened skin sensitivity during active treatment.</div></div>
+      <div class="wwd-card"><div class="wwd-icon">🎗️</div><div class="wwd-title en">Post-Treatment Recovery</div><div class="wwd-desc en">Specialist support for skin recovery after chemotherapy completion — pigmentation normalisation and skin barrier repair.</div></div>
+    </div>
+    <div class="guide-box">
+      <div class="guide-title">🩷 <span class="en">How Our Oncology Specialists Work</span></div>
+      <div class="guide-steps">
+        <div class="guide-step"><div class="guide-step-num">1</div><span class="en">Pre-appointment consultation — specialist reviews current medications and treatment phase before selecting products</span></div>
+        <div class="guide-step"><div class="guide-step-num">2</div><span class="en">Patch test recommended 48 hours before first appointment — essential for chemo-sensitised skin</span></div>
+        <div class="guide-step"><div class="guide-step-num">3</div><span class="en">Service in the comfort of your home or hospital room — we travel to you</span></div>
+        <div class="guide-step"><div class="guide-step-num">4</div><span class="en">Gentle removal with fragrance-free micellar water provided as part of the service</span></div>
+      </div>
+    </div>
+    <div class="awareness-box chemo">
+      <div class="awareness-title en">🩷 Our Commitment to Cancer Patients</div>
+      <div class="awareness-text en">GlamConnect's oncology specialists are trained through a dedicated programme covering chemotherapy-related skin changes, radiation dermatitis, lymphoedema precautions, and emotional sensitivity. Every interaction is handled with absolute dignity. There is no additional charge for oncology consultations — the same 10% commission applies as all other bookings.</div>
+    </div>
+  </div>
+
+  <!-- ══ MENOPAUSE ══ -->
+  <div class="spec-section" id="menopause">
+    <div class="spec-header menopause">
+      <div class="spec-icon-big">🌸</div>
+      <div>
+        <div class="spec-eyebrow en">Specialist Category</div>
+        <div class="spec-title en">Menopause Skin Specialists</div>
+        <div class="spec-title hi" style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--dark);margin-bottom:6px;line-height:1.2;">मेनोपॉज स्किन स्पेशलिस्ट</div>
+        <div class="spec-desc en">Menopause brings significant skin changes — loss of elasticity, increased dryness, pigmentation shifts, increased sensitivity, and facial hair changes. Our specialists are trained specifically in techniques and products that work with these changes, not against them.</div>
+        <div class="spec-desc hi">मेनोपॉज के दौरान त्वचा में महत्वपूर्ण बदलाव आते हैं। हमारे स्पेशलिस्ट इन बदलावों के साथ काम करने में प्रशिक्षित हैं।</div>
+        <div class="spec-stats">
+          <div class="spec-stat"><strong>250M+</strong> <span class="en">Indian women in perimenopause / menopause</span></div>
+          <div class="spec-stat"><strong>0</strong> <span class="en">Other platforms with this category</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="what-we-do">
+      <div class="wwd-card"><div class="wwd-icon">💧</div><div class="wwd-title en">Hydration-First Technique</div><div class="wwd-desc en">Menopausal skin requires intense hydration before any makeup. Specialists apply the right base for lasting, non-drying coverage.</div></div>
+      <div class="wwd-card"><div class="wwd-icon">🌟</div><div class="wwd-title en">Age-Inclusive Looks</div><div class="wwd-desc en">Techniques that enhance rather than age — no heavy powder, no harsh lines, no trends that do not suit mature skin.</div></div>
+      <div class="wwd-card"><div class="wwd-icon">🎨</div><div class="wwd-title en">Pigmentation Management</div><div class="wwd-desc en">Colour correction for melasma and age spots that develop during the menopausal transition.</div></div>
+      <div class="wwd-card"><div class="wwd-icon">🌺</div><div class="wwd-title en">Facial Hair Awareness</div><div class="wwd-desc en">Techniques that work with facial hair changes without drawing attention to them.</div></div>
+    </div>
+    <div class="awareness-box menopause">
+      <div class="awareness-title en">🌸 Why This Matters</div>
+      <div class="awareness-text en">Indian women experiencing menopause have been consistently underserved by the beauty industry, which historically has treated them as a demographic to be concealed rather than celebrated. GlamConnect's menopause specialists are trained in both the physiological realities of menopausal skin and the cultural context of Indian women — including joint family environments, work transitions, and the social importance of occasions like weddings and festivals at this life stage.</div>
+    </div>
+  </div>
+
+  <!-- ══ PSORIASIS ══ -->
+  <div class="spec-section" id="psoriasis">
+    <div class="spec-header psoriasis">
+      <div class="spec-icon-big">💙</div>
+      <div>
+        <div class="spec-eyebrow en">Specialist Category</div>
+        <div class="spec-title en">Psoriasis & Eczema Skin Specialists</div>
+        <div class="spec-title hi" style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--dark);margin-bottom:6px;">सोरायसिस और एक्जिमा स्किन स्पेशलिस्ट</div>
+        <div class="spec-desc en">Specialists who understand inflammatory skin conditions and know which products and techniques to use — and which to avoid. Never applies makeup over actively inflamed or broken skin. Works in remission periods to help clients feel confident.</div>
+      </div>
+    </div>
+    <div class="what-we-do">
+      <div class="wwd-card"><div class="wwd-icon">🚫</div><div class="wwd-title en">What We Never Use</div><div class="wwd-desc en">No fragrances, no formaldehyde releasers, no alcohol-based setting sprays on psoriasis or eczema-affected skin. Pre-cleared product list only.</div></div>
+      <div class="wwd-card"><div class="wwd-icon">✅</div><div class="wwd-title en">Dermatologist-Coordinated</div><div class="wwd-desc en">Our specialists are trained to coordinate with your dermatologist's treatment plan — we never interrupt topical medication routines.</div></div>
+      <div class="wwd-card"><div class="wwd-icon">🎯</div><div class="wwd-title en">Flare-Aware Approach</div><div class="wwd-desc en">If skin is in active flare, we reschedule without penalty. We only work in remission periods when skin is comfortable.</div></div>
+    </div>
+  </div>
+
+  <!-- ══ ADAPTIVE ══ -->
+  <div class="spec-section" id="adaptive">
+    <div class="spec-header adaptive">
+      <div class="spec-icon-big">♿</div>
+      <div>
+        <div class="spec-eyebrow en">Specialist Category</div>
+        <div class="spec-title en">Adaptive Beauty Services</div>
+        <div class="spec-title hi" style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--dark);margin-bottom:6px;">एडाप्टिव ब्यूटी सेवाएं</div>
+        <div class="spec-desc en">Beauty services for clients with physical disabilities, limited mobility, or conditions requiring modified service approaches. Patient artists trained in accessible, adapted techniques — working with the client's comfort and capabilities, not against them.</div>
+      </div>
+    </div>
+    <div class="what-we-do">
+      <div class="wwd-card"><div class="wwd-icon">🏠</div><div class="wwd-title en">Home Service Always</div><div class="wwd-desc en">All adaptive services are home-based. Artist travels with accessible setup — no requirement for the client to travel anywhere.</div></div>
+      <div class="wwd-card"><div class="wwd-icon">⏱️</div><div class="wwd-title en">Flexible Timing</div><div class="wwd-desc en">Sessions can be paused and resumed. Artists are trained to work at the client's pace without any time pressure.</div></div>
+      <div class="wwd-card"><div class="wwd-icon">🤝</div><div class="wwd-title en">Carer Coordination</div><div class="wwd-desc en">Artists are trained to coordinate comfortably with carers, family members, or support staff present during the session.</div></div>
+    </div>
+  </div>
+
+  <!-- ══ LGBTQ+ ══ -->
+  <div class="spec-section" id="lgbtq">
+    <div class="spec-header lgbtq">
+      <div class="spec-icon-big">🌈</div>
+      <div>
+        <div class="spec-eyebrow en">Specialist Category</div>
+        <div class="spec-title en">LGBTQ+ Inclusive Beauty Services</div>
+        <div class="spec-title hi" style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--dark);margin-bottom:6px;">LGBTQ+ इंक्लूसिव ब्यूटी सेवाएं</div>
+        <div class="spec-desc en">GlamConnect welcomes all identities. Artists marked LGBTQ+ Inclusive have completed our equality and inclusion training. Zero tolerance for any form of discrimination. Every person who comes to this platform deserves to be served with complete dignity.</div>
+      </div>
+    </div>
+    <div style="background:linear-gradient(135deg,#FFF0F5,var(--white));border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:16px;">
+      <div style="font-size:0.85rem;font-weight:700;color:var(--dark);margin-bottom:8px;" class="en">Our Anti-Discrimination Commitment</div>
+      <div style="font-size:0.82rem;color:var(--muted);line-height:1.7;" class="en">No GlamConnect artist may refuse service based on gender identity, sexual orientation, or expression. Any confirmed discrimination results in permanent ban with no appeal. This is not a guideline — it is a binding platform rule published in our Terms of Service.</div>
+    </div>
+  </div>
+
+  <!-- ══ ALOPECIA ══ -->
+  <div class="spec-section" id="alopecia">
+    <div class="spec-header alopecia">
+      <div class="spec-icon-big">🧔</div>
+      <div>
+        <div class="spec-eyebrow en">Specialist Category</div>
+        <div class="spec-title en">Alopecia & Hair Loss Specialists</div>
+        <div class="spec-title hi" style="font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--dark);margin-bottom:6px;">अलोपेसिया और हेयर लॉस स्पेशलिस्ट</div>
+        <div class="spec-desc en">Artists trained in scalp-safe techniques, brow restoration drawing, lash enhancement for clients experiencing alopecia areata, alopecia totalis, or hair loss from medical treatment.</div>
+      </div>
+    </div>
+    <div class="what-we-do">
+      <div class="wwd-card"><div class="wwd-icon">✏️</div><div class="wwd-title en">Brow Restoration</div><div class="wwd-desc en">Micro-stroke brow drawing that mimics natural hair growth. Waterproof, long-lasting technique.</div></div>
+      <div class="wwd-card"><div class="wwd-icon">👁️</div><div class="wwd-title en">Lash-Line Enhancement</div><div class="wwd-desc en">Techniques for clients without lashes — lash-line definition that defines the eye without requiring natural lashes.</div></div>
+      <div class="wwd-card"><div class="wwd-icon">🌸</div><div class="wwd-title en">Scalp Safe</div><div class="wwd-desc en">All products safe for application near or on scalp if required. Nothing that irritates or aggravates hair follicles.</div></div>
+    </div>
+  </div>
+
+  <!-- DIGNITY SECTION -->
+  <div class="dignity-section">
+    <h2 class="en">The India that every other platform ignored</h2>
+    <h2 class="hi" style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;margin-bottom:10px;">वह भारत जिसे हर दूसरे प्लेटफॉर्म ने नज़रअंदाज किया</h2>
+    <p class="en">These are not niche segments. These are tens of millions of Indian people who were told — implicitly, by every platform's silence — that their beauty needs did not exist. GlamConnect says otherwise.</p>
+    <div class="dignity-grid">
+      <div class="dignity-card"><div class="dignity-icon">🌿</div><div class="dignity-num">30M+</div><div class="dignity-label">Indians with vitiligo — ignored by every platform</div></div>
+      <div class="dignity-card"><div class="dignity-icon">💜</div><div class="dignity-num">7M+</div><div class="dignity-label">Burn survivors in India — no platform served them</div></div>
+      <div class="dignity-card"><div class="dignity-icon">🩷</div><div class="dignity-num">1.4M</div><div class="dignity-label">New cancer diagnoses annually — no beauty support</div></div>
+      <div class="dignity-card"><div class="dignity-icon">🌸</div><div class="dignity-num">250M+</div><div class="dignity-label">Women in menopause — underserved by beauty industry</div></div>
+      <div class="dignity-card"><div class="dignity-icon">💙</div><div class="dignity-num">8M+</div><div class="dignity-label">Indians with psoriasis — products rarely safe for them</div></div>
+      <div class="dignity-card"><div class="dignity-icon">♿</div><div class="dignity-num">26M+</div><div class="dignity-label">Indians with disabilities — zero accessible beauty services</div></div>
+    </div>
+  </div>
+
+  <!-- BOOK CTA -->
+  <div style="background:var(--purple-bg);border:1px solid rgba(124,58,237,0.12);border-radius:24px;padding:40px;text-align:center;">
+    <div style="font-size:0.72rem;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;" class="en">Book a Specialist</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--dark);margin-bottom:8px;" class="en">Your beauty matters. Your needs matter.</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--dark);margin-bottom:8px;" class="hi">आपकी सुंदरता मायने रखती है। आपकी जरूरतें मायने रखती हैं।</div>
+    <div style="font-size:0.9rem;color:var(--muted);line-height:1.7;max-width:520px;margin:0 auto 24px;" class="en">Book a certified inclusive beauty specialist today. Same 10% commission as all other bookings. Police verified. Aadhaar confirmed. Home service available across India.</div>
+    <button class="cta-primary" style="font-size:1rem;padding:15px 36px;" onclick="openModal(null)">
+      <span class="en">🌿 Book a Specialist →</span>
+      <span class="hi">🌿 स्पेशलिस्ट बुक करें →</span>
+    </button>
+    <div style="font-size:0.78rem;color:var(--muted);margin-top:14px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap;" class="en">
+      <span>✅ Police verified</span>
+      <span>💜 Zero judgement</span>
+      <span>🔒 DPDP protected</span>
+      <span>💳 10% commission</span>
+      <span>🏠 Home service</span>
+    </div>
+  </div>
+
+</main>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="bookingModal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-title en">Book a Specialist</div>
+      <div class="modal-title hi" style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;color:var(--dark);">स्पेशलिस्ट बुक करें</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <label class="mb-label en">Specialist Category</label>
+    <select class="mb-select" id="m-category" onchange="updatePrice()">
+      <option value="2800">🌿 Vitiligo Coverage — ₹2,800</option>
+      <option value="3000">💜 Burn & Scar Coverage — ₹3,000</option>
+      <option value="2500">🩷 Oncology Aesthetics — ₹2,500</option>
+      <option value="2200">🌸 Menopause Skin Specialist — ₹2,200</option>
+      <option value="2000">💙 Psoriasis / Eczema Specialist — ₹2,000</option>
+      <option value="2500">♿ Adaptive Beauty Service — ₹2,500</option>
+      <option value="2000">🌈 LGBTQ+ Inclusive Service — ₹2,000</option>
+      <option value="2200">🧔 Alopecia / Hair Loss Specialist — ₹2,200</option>
+    </select>
+    <label class="mb-label en">Your Name *</label>
+    <input class="mb-input" id="m-name" type="text" placeholder="Full name"/>
+    <label class="mb-label en">Phone *</label>
+    <input class="mb-input" id="m-phone" type="tel" placeholder="+91 XXXXX XXXXX"/>
+    <label class="mb-label en">Date *</label>
+    <input class="mb-input" id="m-date" type="date"/>
+    <label class="mb-label en">Service Address *</label>
+    <input class="mb-input" id="m-address" type="text" placeholder="Full home/venue address"/>
+    <label class="mb-label en">Special requirements or skin conditions to share</label>
+    <textarea class="mb-textarea" id="m-notes" placeholder="Help the specialist prepare the right products. All information is confidential and protected under DPDP Act 2023."></textarea>
+    <div class="price-breakdown">
+      <div class="pb-row"><span class="en">Service Price</span><span id="m-price">₹2,800</span></div>
+      <div class="pb-row"><span class="en" style="color:var(--green);">Commission (10%)</span><span style="color:var(--green);" id="m-commission">₹280</span></div>
+      <div class="pb-row"><span>GST (18%)</span><span id="m-gst">₹50</span></div>
+      <div class="pb-row total"><span class="en">Total</span><span id="m-total">₹3,130</span></div>
+      <div class="pb-row dep"><span class="en">Pay now (20% deposit)</span><span id="m-deposit">₹626</span></div>
+    </div>
+    <div class="upi-nudge">💚 <span class="en">Pay with UPI — GPay · PhonePe · Paytm · Save ₹20</span></div>
+    <div class="consent-row">
+      <input type="checkbox" id="m-consent"/>
+      <span class="en">I agree to the <a href="glamconnect-legal-pages.html">Terms of Service</a> and <a href="glamconnect-legal-pages.html">Privacy Policy</a>. My specialist-relevant health information is shared only with my booked artist and protected under DPDP Act 2023.</span>
+    </div>
+    <button class="mb-submit" onclick="confirmBooking()">
+      🌿 <span class="en">Confirm Booking & Pay Deposit →</span>
+      <span class="hi">पुष्टि करें और डिपॉजिट दें →</span>
+    </button>
+  </div>
+</div>
+
+<footer>
+  <p class="en">GlamConnect India Pvt. Ltd. · Inclusive Beauty for Every Indian<br/>
+  Anti-Discrimination Policy: No service may be refused based on any personal characteristic. Permanent ban for violations.<br/>
+  Grievance Officer: Abhishek Jaiswal · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8cebfee5e9faede2efe9ccebe0ede1efe3e2e2e9eff8a2e5e2">[email&#160;protected]</a> · <a href="glamconnect-legal-pages.html">Privacy Policy</a> · <a href="glamconnect-legal-pages.html">Data Rights</a></p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function setLang(l){
+  document.body.classList.toggle('hindi-mode',l==='hi');
+  document.getElementById('en-btn').classList.toggle('active',l==='en');
+  document.getElementById('hi-btn').classList.toggle('active',l==='hi');
+  localStorage.setItem('gc_lang',l);
+}
+if(localStorage.getItem('gc_lang')==='hi')setLang('hi');
+
+// Set min date
+const today=new Date().toISOString().split('T')[0];
+if(document.getElementById('m-date'))document.getElementById('m-date').min=today;
+
+// Tab scroll
+function scrollTo(id,btn){
+  document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+}
+
+// Modal
+function openModal(category){
+  document.getElementById('bookingModal').classList.add('open');
+  if(category){
+    const sel=document.getElementById('m-category');
+    for(let o of sel.options){
+      if(o.text.toLowerCase().includes(category.toLowerCase())){sel.value=o.value;break;}
+    }
+  }
+  updatePrice();
+  if(document.getElementById('m-date'))document.getElementById('m-date').value=today;
+}
+function closeModal(){document.getElementById('bookingModal').classList.remove('open');}
+document.getElementById('bookingModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+
+function updatePrice(){
+  const p=parseInt(document.getElementById('m-category').value)||2800;
+  const c=Math.round(p*0.10),g=Math.round(c*0.18),t=p+c+g,d=Math.round(t*0.20);
+  const fmt=n=>n.toLocaleString('en-IN');
+  document.getElementById('m-price').textContent='₹'+fmt(p);
+  document.getElementById('m-commission').textContent='₹'+fmt(c);
+  document.getElementById('m-gst').textContent='₹'+fmt(g);
+  document.getElementById('m-total').textContent='₹'+fmt(t);
+  document.getElementById('m-deposit').textContent='₹'+fmt(d);
+}
+
+function confirmBooking(){
+  const consent=document.getElementById('m-consent').checked;
+  const name=document.getElementById('m-name').value.trim();
+  if(!name){alert('Please enter your name.');return;}
+  if(!consent){alert('Please accept the Terms of Service to continue.');return;}
+  closeModal();
+  setTimeout(()=>{
+    const ref='GC-SPEC-'+Math.floor(Math.random()*9000+1000);
+    alert('✅ Specialist Booking Confirmed!\n\nBooking ID: '+ref+'\n\nYour specialist will be confirmed within 30 minutes.\nWhatsApp confirmation will arrive shortly.\n\nThank you for choosing GlamConnect — India\'s only inclusive beauty platform. 🌿');
+  },300);
+}
+</script>
+</body>
+</html>
